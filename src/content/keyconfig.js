@@ -12,7 +12,7 @@ var gUsedKeys = [];
 var gLocaleKeys;
 var gPlatformKeys = new Object();
 var gVKNames = [];
-var gReverseNames = true;
+var gReverseNames;
 
 function onLoad(){
   gExtra2 = document.documentElement.getButton("extra2");
@@ -51,7 +51,7 @@ function onOK() { if(gPrefService.getBoolPref("keyconfig.warnOnClose")) alert(me
 
 function getFormattedKey(modifiers,key,keycode) {
   var val = "";
-  if (modifiers) val = modifiers
+  if(modifiers) val = modifiers
     .replace(/ $/,"")
     .replace(" ",",")
     .replace(",,",",")
@@ -62,7 +62,7 @@ function getFormattedKey(modifiers,key,keycode) {
     .replace("meta",gPlatformKeys.meta)
     .replace("accel",gPlatformKeys.accel)
   +gPlatformKeys.sep;
-  if (key)
+  if(key)
     val += key;
   if(keycode) try {
     val += gLocaleKeys.getString(keycode)
@@ -76,11 +76,12 @@ function getNameForKey(aKey) {
 
   if(aKey.hasAttribute("label")) return aKey.getAttribute("label");
 
-  if(aKey.hasAttribute("command")) {
-    var command = aKey.getAttribute("command");
+  if(aKey.hasAttribute("command") || aKey.hasAttribute("observes")) {
+    var command = aKey.getAttribute("command") || aKey.getAttribute("observes");
     var node = gDocument.getElementById(command);
     if(node && node.hasAttribute("label")) return node.getAttribute("label");
     val = getLabel("command", command);
+    if(!val) val = getLabel("observes", command);
   }
 
   if(!val) val = getLabel("key", aKey.id);
@@ -91,6 +92,7 @@ function getNameForKey(aKey) {
 
   if(keyname[id]) {
     var key = gDocument.getElementById(keyname[id]);
+    if(!key) key = gRemovedKeys.getElementsByAttribute("id",keyname[id])[0];
     if(key) return getNameForKey(key);
     return keyname[id];
   }
@@ -103,7 +105,7 @@ function getLabel(attr, value) {
   var User;
 
   for(var i = 0, l = Users.length; i < l; i++)
-    if(Users[i].localName != "key" && (!User || User.localName == "menuitem")) User = Users[i];
+    if(Users[i].hasAttribute("label") && (!User || User.localName == "menuitem")) User = Users[i];
 
   if(!User) return null;
 
@@ -202,11 +204,7 @@ function Key(aKey) {
 }
 
 var sorter = {
-  name: function(a,b) {
-    if(a.name == b.name) return 0;
-    if(a.name > b.name) return 1;
-    return -1;
-  },
+  name: function(a,b) { return a.name.localeCompare(b.name); },
   shortcut: function(a,b) {
     if(a.shortcut == b.shortcut) return 0;
     if(!a.shortcut) return 1;
@@ -227,7 +225,6 @@ function detectUsedKeys() {
   }
 
   gUsedKeys[""] = gUsedKeys[messages.onreset] = {length: 0}
-
 }
 
 function openEditor() { openDialog('chrome://keyconfig/content/edit.xul', 'keyconfig-edit', 'resizable,modal'); }
@@ -239,7 +236,7 @@ function closeEditor(fields) {
     key = fields.key;
     gPrefService.clearUserPref(gProfile+key.node.id);
   } else {
-    key = {node: document.createElement("key"), shortcut: "", pref: ["!",,," ",gDocument.location]}
+    key = {node: document.createElement("key"), shortcut: "", pref: ["!",,,";",gDocument.location]}
     gKeys.push(key);
     gDocument.getElementsByTagName("keyset")[0].appendChild(key.node);
     gTree.treeBoxObject.rowCountChanged(gTree.view.rowCount-1,1);
@@ -247,7 +244,7 @@ function closeEditor(fields) {
     gTree.treeBoxObject.ensureRowIsVisible(gTree.view.rowCount-1);
   }
 
-  key.name = fields.name.value;
+  key.name = fields.name.value || "key"+Date.now();
   key.node.id = "xxx_key__" + key.name;
   key.node.setAttribute("oncommand",fields.code.value || " ");
   key.pref[3] = fields.code.value || " ";
@@ -258,10 +255,9 @@ function closeEditor(fields) {
 }
 
 function setupTree() {
-  gDocument.documentElement.appendChild(gRemovedKeys);
   var keys = gDocument.getElementsByTagName("key");
   for(var i = 0, l = keys.length; i < l; i++) gKeys.push(new Key(keys[i]));
-  gDocument.documentElement.removeChild(gRemovedKeys);
+  for(i = 0, l = gRemovedKeys.childNodes.length; i < l; i++) gKeys.push(new Key(gRemovedKeys.childNodes[i]));
 
   detectUsedKeys();
 
@@ -293,7 +289,7 @@ var treeView = {
       props.AppendElement(gAtomService.getAtom("duplicate"));
   },
   getColumnProperties: function(){},
-  selectionChanged: function(){
+  selectionChanged: function() {
     gExtra2.label = gKeys[gTree.currentIndex].pref[3] ? messages.edit : messages.add;
     if(gEditbox.hasAttribute("disabled")) gEditbox.removeAttribute("disabled");
     gEdit.key = gKeys[gTree.currentIndex];

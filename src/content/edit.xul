@@ -24,7 +24,7 @@ function onLoad() {
     fields.code.value = key.pref[3];
     fields.key = key;
   } else {
-    fields.name.value = "key"+(new Date()).getTime();
+    fields.name.value = "key"+Date.now();
     fields.code.value = "/* CODE */";
     fields.key = null;
   }   

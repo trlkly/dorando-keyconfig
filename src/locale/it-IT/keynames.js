@@ -1,2 +1,2 @@
 //Firefox Main Window
-keyname["BrowserReloadSkipCache();"] = "Ricarica (escludi la cache)";
+keyname["BrowserReloadSkipCache();"] = keyname["Browser:ReloadSkipCache"] = "Ricarica (escludi la cache)";

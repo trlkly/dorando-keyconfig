@@ -8,9 +8,9 @@
 <!ENTITY keyconfig.disable "Désactiver">
 <!ENTITY keyconfig.warn "Les changements affectent seulement les nouvelles fenêtres.">
 
-<!ENTITY keyconfig.unrecognized "Unrecognized ($1)">
-<!ENTITY keyconfig.used "This key is already used by:\n$1\n\nIt might still work, though.">
-<!ENTITY keyconfig.close "Close">
-<!ENTITY keyconfig.onreset "Restart required">
-<!ENTITY keyconfig.add "Add a new key">
-<!ENTITY keyconfig.edit "Edit this key">
+<!ENTITY keyconfig.unrecognized "Non reconnu ($1)">
+<!ENTITY keyconfig.used "Cette clef est déjà utilisée par :\n$1\n\nCependant, cela devrait encore fonctionner.">
+<!ENTITY keyconfig.close "Fermer">
+<!ENTITY keyconfig.onreset "Un redémarrage est nécessaire">
+<!ENTITY keyconfig.add "Ajouter une nouvelle clef">
+<!ENTITY keyconfig.edit "Éditer cette clef">

@@ -6,7 +6,7 @@
   <rdf:Description rdf:about="urn:mozilla:install-manifest">
     <id>keyconfig</id>
     <name>keyconfig</name>
-    <version>20050227</version>
+    <version>20050313</version>
     <creator>Dorando</creator>
     <contributor>Hadar Hagai</contributor>
     <contributor>MatrixIsAllOver of eXtenZilla.it (it-IT locale)</contributor>
@@ -35,8 +35,8 @@
 
     <targetApplication><rdf:Description>
       <id>{136c295a-4a5a-41cf-bf24-5cee526720d5}</id>
-      <minVersion>0.81</minVersion>
-      <maxVersion>0.81</maxVersion>
+      <minVersion>0.90</minVersion>
+      <maxVersion>0.90</maxVersion>
     </rdf:Description></targetApplication>
 
     <targetApplication><rdf:Description>

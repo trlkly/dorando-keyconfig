@@ -1,2 +1,2 @@
 //Firefox Main Window
-keyname["BrowserReloadSkipCache();"] = "Reload (override cache)";
+keyname["BrowserReloadSkipCache();"] = keyname["Browser:ReloadSkipCache"] = "Reload (override cache)";
