@@ -1,0 +1,11 @@
+<!ENTITY keyconfig.title "Étiquette">
+<!ENTITY keyconfig.label "Configurer les clefs...">
+<!ENTITY keyconfig.accesskey "k">
+<!ENTITY keyconfig.apply "Appliquer">
+<!ENTITY keyconfig.reset "Réinitialiser">
+<!ENTITY keyconfig.keyid "Identité">
+<!ENTITY keyconfig.keys "Clefs">
+<!ENTITY keyconfig.disable "Désactiver">
+<!ENTITY keyconfig.onreset "Réinitialiser prendra effet après le redémarrage.">
+<!ENTITY keyconfig.warn "Les changements affectent seulement les nouvelles fenêtres.">
+<!ENTITY keyconfig.unrecognized " -- Non reconnu, ce doit être invalide.">

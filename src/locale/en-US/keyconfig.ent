@@ -1,8 +1,11 @@
-<!ENTITY keyconfig.label "Keyconfig">
+<!ENTITY keyconfig.title "Keyconfig">
+<!ENTITY keyconfig.label "Keyconfig...">
 <!ENTITY keyconfig.accesskey "k">
 <!ENTITY keyconfig.apply "Apply">
 <!ENTITY keyconfig.reset "Reset">
-<!ENTITY keyconfig.keyid "ID">
+<!ENTITY keyconfig.keyid "Name">
 <!ENTITY keyconfig.keys "Shortcut">
+<!ENTITY keyconfig.disable "Disable">
 <!ENTITY keyconfig.onreset "Reset takes effect on restart.">
 <!ENTITY keyconfig.warn "Changes affect only new windows.">
+<!ENTITY keyconfig.unrecognized " -- Not recognized, might be invalid.">

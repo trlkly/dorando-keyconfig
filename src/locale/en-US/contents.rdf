@@ -7,7 +7,7 @@
     <rdf:li rdf:resource="urn:mozilla:locale:en-US"/>
   </rdf:Seq>
 
-  <rdf:Description rdf:about="urn:mozilla:locale:en-US"><chrome:packages>
+  <rdf:Description rdf:about="urn:mozilla:locale:en-US" chrome:name="en-US"><chrome:packages>
     <rdf:Seq rdf:about="urn:mozilla:locale:en-US:packages">
       <rdf:li rdf:resource="urn:mozilla:locale:en-US:keyconfig"/>
     </rdf:Seq>

@@ -4,81 +4,55 @@
 
 <!DOCTYPE dialog SYSTEM "chrome://keyconfig/locale/keyconfig.ent">
 
-<dialog id="keyconfig-window" title="&keyconfig.label;"
+<dialog id="keyconfig-window" title="&keyconfig.title;"
 	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 	style="width: 40em;" buttons="accept" persist="width,height,screenX,screenY"
         onload="onLoad();" ondialogaccept="onOK();">
 
-<script type="application/x-javascript" src="chrome://keyconfig/content/keyconfig.js"/>
+<script src="chrome://keyconfig/content/keyconfig.js"/>
 
 <tree flex="1" enableColumnDrag="true" height="300" seltype="single" onselect="onSelect(event);">
  <treecols>
-  <treecol id="id" label="&keyconfig.keyid;" flex="1" persist="width" />
+  <treecol id="id" label="&keyconfig.keyid;" flex="1" persist="width,ordinal"/>
   <splitter class="tree-splitter"/>
-  <treecol id="keys" label="&keyconfig.keys;" flex="1" persist="width" />
+  <treecol id="keys" label="&keyconfig.keys;" flex="1" persist="width,ordinal"/>
  </treecols>
 
  <treechildren id="content" alternatingbackground="true"/>
 
 </tree>
 
-<hbox><hbox id="edit" flex="1">
-<menulist flex="1" editable="true" onclick="this.select();"><menupopup>
-  <menuitem label="accel"/>
-  <menuitem label="accel+shift"/>
-  <menuitem label="alt"/>
-  <menuitem label="control"/>
-  <menuitem label="meta"/>
-  <menuitem label="shift"/>
-
-  <menuitem label="command"/>
-</menupopup></menulist>
-
-<menulist flex="1" editable="true" onclick="this.select();" oninput="this.value=this.value.toUpperCase();"><menupopup>
-  <menuitem label="VK_BACK"/>
-  <menuitem label="VK_DELETE"/>
-  <menuitem label="VK_DOWN"/>
-  <menuitem label="VK_END"/>
-  <menuitem label="VK_ESCAPE"/>
-  <menuitem label="VK_F1"/>
-  <menuitem label="VK_F2"/>
-  <menuitem label="VK_F3"/>
-  <menuitem label="VK_F4"/>
-  <menuitem label="VK_F5"/>
-  <menuitem label="VK_F6"/>
-  <menuitem label="VK_F7"/>
-  <menuitem label="VK_F8"/>
-  <menuitem label="VK_F9"/>
-  <menuitem label="VK_F10"/>
-  <menuitem label="VK_F11"/>
-  <menuitem label="VK_F12"/>
-  <menuitem label="VK_HOME"/>
-  <menuitem label="VK_INSERT"/>
-  <menuitem label="VK_LEFT"/>
-  <menuitem label="VK_PAGE_UP"/>
-  <menuitem label="VK_PAGE_DOWN"/>
-  <menuitem label="VK_RIGHT"/>
-  <menuitem label="VK_RETURN"/>
-  <menuitem label="VK_TAB"/>
-  <menuitem label="VK_UP"/>
-</menupopup></menulist>
-
-</hbox>
-
-<button label="&keyconfig.apply;" oncommand="onApply();" />
-<button label="&keyconfig.reset;" oncommand="onReset();" />
+<hbox>
+<textbox id="edit" flex="1" onclick="this.select();" onkeypress="Recognize(event);"/>
+<button label="&keyconfig.apply;" oncommand="Apply();" />
+<button label="&keyconfig.disable;" oncommand="Disable();" />
+<button label="&keyconfig.reset;" oncommand="Reset();" />
 </hbox>
 
 <script>
+var messages = {
+  warn: "&keyconfig.warn;",
+  onreset: "&keyconfig.onreset;",
+  unrecognized: "&keyconfig.unrecognized;"
+}
 
-var messages = new Object;
-messages.warn = "&keyconfig.warn;";
-messages.onreset = "&keyconfig.onreset;"
+var keyname = {
+  key_keyconfig: "&keyconfig.label;...",
 
-var keyname = new Object;
-keyname["key_keyconfig"] = "&keyconfig.label;..."
+  "Browser:Forward": "goForwardKb",
+  "BrowserReload();": "key_reload",
+  cmd_findAgain: "key_findAgain",
+  cmd_findPrevious: "key_findPrevious",
+  cmd_textZoomEnlarge: "key_textZoomEnlarge",
+  cmd_handleBackspace: "goBackKb",
+  focusURLBar2: "focusURLBar",
+  key_search2: "key_search",
+  viewBookmarksSidebarWinKb: "viewBookmarksSidebarKb"
+}
 </script>
 
-<script type="application/x-javascript" src="chrome://keyconfig/locale/keynames.js"/>
+<script src="chrome://keyconfig/locale/keynames.js"/>
+<stringbundle id="platformKeys" src="chrome://global-platform/locale/platformKeys.properties"/>
+<stringbundle id="localeKeys" src="chrome://global/locale/keys.properties"/>
 
 </dialog> 

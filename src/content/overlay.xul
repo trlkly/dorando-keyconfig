@@ -19,7 +19,7 @@
 <keyset id="tasksKeys"><keyset id="mainKeyset"/></keyset>
 
 <commandset id="mainCommandSet">
- <command id="cmd_keyconfig" label="&keyconfig.label;..." accesskey="&keyconfig.accesskey;"
+ <command id="cmd_keyconfig" label="&keyconfig.label;" accesskey="&keyconfig.accesskey;"
   oncommand='openDialog("chrome://keyconfig/content/","keyconfig", "resizable,modal");'/>
 </commandset>
 <commandset id="editMenuCommands"><commandset id="mainCommandSet"/></commandset>
@@ -28,6 +28,6 @@
 
 <script type="application/x-javascript" src="chrome://keyconfig/content/overlay.js"/>
 
-<script><![CDATA[ window.addEventListener("load", function(event){keyconfig.loadkeys("main");}, false); ]]></script>
+<script><![CDATA[ extLoad.add(30, function(){keyconfig.loadkeys("main");}) ]]></script>
 
 </overlay>
