@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE overlay SYSTEM "chrome://keyconfig/locale/keyconfig.ent">
+
+<overlay id="keyconfigOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+<menupopup id="taskPopup">
+ <menuitem id="keyconfig" command="cmd_keyconfig" insertafter="prefSep" key="key_keyconfig"/>
+</menupopup>
+
+<menupopup id="menu_ToolsPopup">
+ <menuitem id="keyconfig" command="cmd_keyconfig" insertafter="prefSep" key="key_keyconfig"/>
+</menupopup>
+
+<keyset id="mainKeyset">
+ <key id="key_keyconfig" modifiers="accel,shift" keycode="VK_F12" command="cmd_keyconfig"/>
+</keyset>
+<keyset id="editMenuKeys"><keyset id="mainKeyset"/></keyset>
+<keyset id="tasksKeys"><keyset id="mainKeyset"/></keyset>
+
+<commandset id="mainCommandSet">
+ <command id="cmd_keyconfig" label="&label;" accesskey="&accesskey;"
+  oncommand='openDialog("chrome://keyconfig/content/","keyconfig", "resizable,modal");'/>
+</commandset>
+<commandset id="editMenuCommands"><commandset id="mainCommandSet"/></commandset>
+<commandset id="tasksCommands"><commandset id="mainCommandSet"/></commandset>
+
+<script type="application/x-javascript" src="chrome://keyconfig/content/overlay.js"/>
+
+<script><![CDATA[ window.addEventListener("load", function(event){keyconfig.loadkeys("main");}, false); ]]></script>
+
+</overlay>

@@ -1,0 +1,6 @@
+<!ENTITY label "Keyconfig...">
+<!ENTITY accesskey "k">
+<!ENTITY apply "Apply">
+<!ENTITY reset "Reset">
+<!ENTITY onreset "Reset takes effect on restart.">
+<!ENTITY warn "Changes affects only new windows (or this if you havn't used a shortcut).">

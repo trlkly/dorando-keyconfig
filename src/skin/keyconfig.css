@@ -1,0 +1,3 @@
+treechildren::-moz-tree-cell-text(disabled) {
+ color: GrayText;
+}
