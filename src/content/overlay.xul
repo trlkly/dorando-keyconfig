@@ -5,11 +5,11 @@
 <overlay id="keyconfigOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
 <menupopup id="taskPopup">
- <menuitem id="keyconfig" command="cmd_keyconfig" insertafter="prefSep" key="key_keyconfig"/>
+ <menuitem id="keyconfig" command="cmd_keyconfig" insertbefore="menu_preferences" key="key_keyconfig"/>
 </menupopup>
 
 <menupopup id="menu_ToolsPopup">
- <menuitem id="keyconfig" command="cmd_keyconfig" insertafter="prefSep" key="key_keyconfig"/>
+ <menuitem id="keyconfig" command="cmd_keyconfig" insertbefore="menu_preferences" key="key_keyconfig"/>
 </menupopup>
 
 <keyset id="mainKeyset">
@@ -23,6 +23,7 @@
   oncommand='openDialog("chrome://keyconfig/content/","keyconfig", "resizable,modal");'/>
 </commandset>
 <commandset id="editMenuCommands"><commandset id="mainCommandSet"/></commandset>
+<commandset id="composeCommands"><commandset id="mainCommandSet"/></commandset>
 <commandset id="tasksCommands"><commandset id="mainCommandSet"/></commandset>
 
 <script type="application/x-javascript" src="chrome://keyconfig/content/overlay.js"/>

@@ -1,8 +1,8 @@
-initInstall("undoclosetab", "/dorando/keyconfig/", "20040501"); 
+initInstall("keyconfig", "/dorando/keyconfig/", ""); 
 
 var chromeDir = getFolder("Profile", "chrome");
 
-addFile("keyconfig","keyconfig.jar",chromeDir,"");
+addFile("keyconfig","chrome/keyconfig.jar",chromeDir,"");
 
 registerChrome(PACKAGE | PROFILE_CHROME, getFolder(chromeDir,"keyconfig.jar"), "content/");
 registerChrome(LOCALE | PROFILE_CHROME, getFolder(chromeDir,"keyconfig.jar"), "locale/en-US/");

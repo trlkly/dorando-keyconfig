@@ -1,11 +1,12 @@
-keyconfig.xpi: keyconfig.jar
+keyconfig.xpi: chrome/keyconfig.jar
 	rm -f $@.tmp
-	zip -r $@.tmp install.js $<
+	zip -r $@.tmp install.js install.rdf $<
 	mv -f $@.tmp $@
 
-keyconfig.jar:
+chrome/keyconfig.jar:
+	mkdir -p chrome
 	rm -f $@.tmp
 	cd src; zip -r ../$@.tmp *
 	mv -f $@.tmp $@
 
-clean: ; -rm -f keyconfig.xpi keyconfig.jar
+clean: ; -rm -rf keyconfig.xpi chrome

@@ -12,16 +12,16 @@
         chrome:extension="true"
         chrome:author="Dorando"
         chrome:authorURL="http://mozilla.dorando.at/"
-        chrome:displayName="keyconfig 20040501"
+        chrome:displayName="keyconfig"
         chrome:name="keyconfig"
-        chrome:description="Rebind your keys.">
-  </RDF:Description>
+        chrome:description="Rebind your keys."/>
 
   <!-- overlay information -->
   <RDF:Seq about="urn:mozilla:overlays">
    <RDF:li resource="chrome://browser/content/browser.xul"/>
    <RDF:li resource="chrome://browser/content/bookmarks/bookmarksManager.xul"/>
    <RDF:li resource="chrome://global/content/globalOverlay.xul"/>
+   <RDF:li resource="chrome://messenger/content/messengercompose/messengercompose.xul"/>
   </RDF:Seq>
   <RDF:Seq about="chrome://browser/content/browser.xul">
     <RDF:li>chrome://keyconfig/content/overlay.xul</RDF:li>
@@ -30,6 +30,9 @@
     <RDF:li>chrome://keyconfig/content/overlay.xul</RDF:li>
   </RDF:Seq>
   <RDF:Seq about="chrome://global/content/globalOverlay.xul">
+    <RDF:li>chrome://keyconfig/content/overlay.xul</RDF:li>
+  </RDF:Seq>
+  <RDF:Seq about="chrome://messenger/content/messengercompose/messengercompose.xul">
     <RDF:li>chrome://keyconfig/content/overlay.xul</RDF:li>
   </RDF:Seq>
 
