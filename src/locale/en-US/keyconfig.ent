@@ -1,6 +1,8 @@
-<!ENTITY label "Keyconfig...">
-<!ENTITY accesskey "k">
-<!ENTITY apply "Apply">
-<!ENTITY reset "Reset">
-<!ENTITY onreset "Reset takes effect on restart.">
-<!ENTITY warn "Changes affects only new windows (or this if you havn't used a shortcut).">
+<!ENTITY keyconfig.label "Keyconfig">
+<!ENTITY keyconfig.accesskey "k">
+<!ENTITY keyconfig.apply "Apply">
+<!ENTITY keyconfig.reset "Reset">
+<!ENTITY keyconfig.keyid "ID">
+<!ENTITY keyconfig.keys "Shortcut">
+<!ENTITY keyconfig.onreset "Reset takes effect on restart.">
+<!ENTITY keyconfig.warn "Changes affect only new windows.">

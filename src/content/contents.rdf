@@ -1,39 +1,31 @@
 <?xml version="1.0"?>
-<RDF:RDF xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-         xmlns:chrome="http://www.mozilla.org/rdf/chrome#">
+<rdf:RDF
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns:chrome="http://www.mozilla.org/rdf/chrome#">
 
-  <!-- list all the packages being supplied -->
-  <RDF:Seq about="urn:mozilla:package:root">
-    <RDF:li resource="urn:mozilla:package:keyconfig"/>
-  </RDF:Seq>
+  <rdf:Seq rdf:about="urn:mozilla:package:root">
+    <rdf:li rdf:resource="urn:mozilla:package:keyconfig"/>
+  </rdf:Seq>
 
-  <!-- package information -->
-  <RDF:Description about="urn:mozilla:package:keyconfig"
-        chrome:extension="true"
-        chrome:author="Dorando"
-        chrome:authorURL="http://mozilla.dorando.at/"
-        chrome:displayName="keyconfig"
-        chrome:name="keyconfig"
-        chrome:description="Rebind your keys."/>
+  <rdf:Description rdf:about="urn:mozilla:package:keyconfig" chrome:name="keyconfig"/>
 
-  <!-- overlay information -->
-  <RDF:Seq about="urn:mozilla:overlays">
-   <RDF:li resource="chrome://browser/content/browser.xul"/>
-   <RDF:li resource="chrome://browser/content/bookmarks/bookmarksManager.xul"/>
-   <RDF:li resource="chrome://global/content/globalOverlay.xul"/>
-   <RDF:li resource="chrome://messenger/content/messengercompose/messengercompose.xul"/>
-  </RDF:Seq>
-  <RDF:Seq about="chrome://browser/content/browser.xul">
-    <RDF:li>chrome://keyconfig/content/overlay.xul</RDF:li>
-  </RDF:Seq>
-  <RDF:Seq about="chrome://browser/content/bookmarks/bookmarksManager.xul">
-    <RDF:li>chrome://keyconfig/content/overlay.xul</RDF:li>
-  </RDF:Seq>
-  <RDF:Seq about="chrome://global/content/globalOverlay.xul">
-    <RDF:li>chrome://keyconfig/content/overlay.xul</RDF:li>
-  </RDF:Seq>
-  <RDF:Seq about="chrome://messenger/content/messengercompose/messengercompose.xul">
-    <RDF:li>chrome://keyconfig/content/overlay.xul</RDF:li>
-  </RDF:Seq>
+  <rdf:Seq rdf:about="urn:mozilla:overlays">
+   <rdf:li rdf:resource="chrome://browser/content/browser.xul"/>
+   <rdf:li rdf:resource="chrome://browser/content/bookmarks/bookmarksManager.xul"/>
+   <rdf:li rdf:resource="chrome://global/content/globalOverlay.xul"/>
+   <rdf:li rdf:resource="chrome://messenger/content/messengercompose/messengercompose.xul"/>
+  </rdf:Seq>
+  <rdf:Seq rdf:about="chrome://browser/content/browser.xul">
+    <rdf:li>chrome://keyconfig/content/overlay.xul</rdf:li>
+  </rdf:Seq>
+  <rdf:Seq rdf:about="chrome://browser/content/bookmarks/bookmarksManager.xul">
+    <rdf:li>chrome://keyconfig/content/overlay.xul</rdf:li>
+  </rdf:Seq>
+  <rdf:Seq rdf:about="chrome://global/content/globalOverlay.xul">
+    <rdf:li>chrome://keyconfig/content/overlay.xul</rdf:li>
+  </rdf:Seq>
+  <rdf:Seq rdf:about="chrome://messenger/content/messengercompose/messengercompose.xul">
+    <rdf:li>chrome://keyconfig/content/overlay.xul</rdf:li>
+  </rdf:Seq>
 
-</RDF:RDF>
+</rdf:RDF>

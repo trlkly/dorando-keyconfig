@@ -1,19 +1,15 @@
 <?xml version="1.0"?>
+<rdf:RDF
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns:chrome="http://www.mozilla.org/rdf/chrome#">
 
-<RDF:RDF xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-         xmlns:chrome="http://www.mozilla.org/rdf/chrome#">
+  <rdf:Seq rdf:about="urn:mozilla:locale:root">
+    <rdf:li rdf:resource="urn:mozilla:locale:en-US"/>
+  </rdf:Seq>
 
-  <!-- list all the packages being supplied by this jar -->
-  <RDF:Seq about="urn:mozilla:locale:root">
-    <RDF:li resource="urn:mozilla:locale:en-US"/>
-  </RDF:Seq>
-
-  <!-- locale information -->
-  <RDF:Description about="urn:mozilla:locale:en-US">
-    <chrome:packages>
-      <RDF:Seq about="urn:mozilla:locale:en-US:packages">
-        <RDF:li resource="urn:mozilla:locale:en-US:keyconfig"/>
-      </RDF:Seq>
-    </chrome:packages>
-  </RDF:Description>
-</RDF:RDF>
+  <rdf:Description rdf:about="urn:mozilla:locale:en-US"><chrome:packages>
+    <rdf:Seq rdf:about="urn:mozilla:locale:en-US:packages">
+      <rdf:li rdf:resource="urn:mozilla:locale:en-US:keyconfig"/>
+    </rdf:Seq>
+  </chrome:packages></rdf:Description>
+</rdf:RDF>

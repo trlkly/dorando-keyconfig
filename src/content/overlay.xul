@@ -19,7 +19,7 @@
 <keyset id="tasksKeys"><keyset id="mainKeyset"/></keyset>
 
 <commandset id="mainCommandSet">
- <command id="cmd_keyconfig" label="&label;" accesskey="&accesskey;"
+ <command id="cmd_keyconfig" label="&keyconfig.label;..." accesskey="&keyconfig.accesskey;"
   oncommand='openDialog("chrome://keyconfig/content/","keyconfig", "resizable,modal");'/>
 </commandset>
 <commandset id="editMenuCommands"><commandset id="mainCommandSet"/></commandset>

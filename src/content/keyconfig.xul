@@ -4,26 +4,26 @@
 
 <!DOCTYPE dialog SYSTEM "chrome://keyconfig/locale/keyconfig.ent">
 
-<dialog id="keyconfig" title="Keyconfig"
+<dialog id="keyconfig-window" title="&keyconfig.label;"
 	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
-	style="width: 36em;" buttons="accept" persist="width,height"
+	style="width: 40em;" buttons="accept" persist="width,height,screenX,screenY"
         onload="onLoad();" ondialogaccept="onOK();">
 
 <script type="application/x-javascript" src="chrome://keyconfig/content/keyconfig.js"/>
 
-<tree flex="1" enableColumnDrag="true" height="300" seltype="single" onselect="onSelect();">
+<tree flex="1" enableColumnDrag="true" height="300" seltype="single" onselect="onSelect(event);">
  <treecols>
-  <treecol id="id" label="id" flex="1" persist="width" />
+  <treecol id="id" label="&keyconfig.keyid;" flex="1" persist="width" />
   <splitter class="tree-splitter"/>
-  <treecol id="keys" label="modifiers+key+keycode" flex="1" persist="width" />
+  <treecol id="keys" label="&keyconfig.keys;" flex="1" persist="width" />
  </treecols>
 
  <treechildren id="content" alternatingbackground="true"/>
 
 </tree>
 
-<hbox id="edit">
-<menulist flex="1" editable="true"><menupopup>
+<hbox><hbox id="edit" flex="1">
+<menulist flex="1" editable="true" onclick="this.select();"><menupopup>
   <menuitem label="accel"/>
   <menuitem label="accel+shift"/>
   <menuitem label="alt"/>
@@ -34,14 +34,11 @@
   <menuitem label="command"/>
 </menupopup></menulist>
 
-<textbox maxlength="1" width="20" onclick="this.select();"
- oninput="this.value=this.value.toUpperCase();this.select();" />
-
-<menulist flex="1" editable="true"><menupopup>
+<menulist flex="1" editable="true" onclick="this.select();" oninput="this.value=this.value.toUpperCase();"><menupopup>
   <menuitem label="VK_BACK"/>
   <menuitem label="VK_DELETE"/>
+  <menuitem label="VK_DOWN"/>
   <menuitem label="VK_END"/>
-  <menuitem label="VK_TAB"/>
   <menuitem label="VK_ESCAPE"/>
   <menuitem label="VK_F1"/>
   <menuitem label="VK_F2"/>
@@ -61,17 +58,27 @@
   <menuitem label="VK_PAGE_UP"/>
   <menuitem label="VK_PAGE_DOWN"/>
   <menuitem label="VK_RIGHT"/>
+  <menuitem label="VK_RETURN"/>
   <menuitem label="VK_TAB"/>
   <menuitem label="VK_UP"/>
 </menupopup></menulist>
 
-<button label="&apply;" oncommand="onApply();" />
-<button label="&reset;" oncommand="onReset();" />
 </hbox>
 
-<messages id="messages"
-  warn="&warn;"
-  onreset="&onreset;"
-/>
+<button label="&keyconfig.apply;" oncommand="onApply();" />
+<button label="&keyconfig.reset;" oncommand="onReset();" />
+</hbox>
+
+<script>
+
+var messages = new Object;
+messages.warn = "&keyconfig.warn;";
+messages.onreset = "&keyconfig.onreset;"
+
+var keyname = new Object;
+keyname["key_keyconfig"] = "&keyconfig.label;..."
+</script>
+
+<script type="application/x-javascript" src="chrome://keyconfig/locale/keynames.js"/>
 
 </dialog> 
