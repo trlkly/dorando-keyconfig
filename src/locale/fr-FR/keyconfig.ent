@@ -6,6 +6,11 @@
 <!ENTITY keyconfig.keyid "Identité">
 <!ENTITY keyconfig.keys "Clefs">
 <!ENTITY keyconfig.disable "Désactiver">
-<!ENTITY keyconfig.onreset "Réinitialiser prendra effet après le redémarrage.">
 <!ENTITY keyconfig.warn "Les changements affectent seulement les nouvelles fenêtres.">
-<!ENTITY keyconfig.unrecognized " -- Non reconnu, ce doit être invalide.">
+
+<!ENTITY keyconfig.unrecognized "Unrecognized ($1)">
+<!ENTITY keyconfig.used "This key is already used by:\n$1\n\nIt might still work, though.">
+<!ENTITY keyconfig.close "Close">
+<!ENTITY keyconfig.onreset "Restart required">
+<!ENTITY keyconfig.add "Add a new key">
+<!ENTITY keyconfig.edit "Edit this key">

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/"?>
+
+<dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+ width="400" height="400"
+ onload="onLoad();" ondialogaccept="window.opener.closeEditor(fields);">
+
+<textbox id="name"/>
+<textbox id="code" multiline="true" flex="1"/>
+
+<script><![CDATA[
+
+var fields;
+
+function onLoad() {
+  fields = {
+    name: document.getElementById("name"),
+    code: document.getElementById("code")
+  }
+  var key = window.opener.gKeys[window.opener.gTree.currentIndex];
+  if(key && key.pref[3]) {
+    fields.name.value = key.name;
+    fields.code.value = key.pref[3];
+    fields.key = key;
+  } else {
+    fields.name.value = "key"+(new Date()).getTime();
+    fields.code.value = "/* CODE */";
+    fields.key = null;
+  }   
+}
+
+]]></script>
+
+</dialog>

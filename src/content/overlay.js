@@ -9,34 +9,33 @@ if(!window.extLoad) var extLoad = {
 
 var keyconfig = {
   prefService: Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefService).getBranch(null),
-  keys: null, window : null,
-  loadkeys: function(aWindow){
-    this.window = aWindow;
+  removedKeys: document.createElement("keyset"),
+  loadkeys: function(name){ this.profile = "keyconfig." + name + ".";
 
-    this.keys = document.getElementsByTagName("key");
-    for(var i = 0; i < this.keys.length; i++) if(!this.keys[i].id)
-      this.keys[i].id = "xxx_key"+i+"_"+this.keys[i].getAttribute("command")+this.keys[i].getAttribute("oncommand");
+    var nodes = document.getElementsByTagName("key");
+    for(var i = 0; i < nodes.length; i++) if(!nodes[i].id)
+      nodes[i].id = "xxx_key"+i+"_"+nodes[i].getAttribute("command")+nodes[i].getAttribute("oncommand");
 
-    this.keys = this.prefService.getChildList("keyconfig." + aWindow + ".", {});
+    this.keys = this.prefService.getChildList(this.profile, {});
 
-    for(var i = 0; i < this.keys.length; i++) {
+    for(i = 0; i < this.keys.length; i++) {
       var key;
       try{ key = this.prefService.getCharPref(this.keys[i]).split("]["); }catch(e){continue;}
-      if(key[3]) {
+      if(key[3] && (!key[4] || key[4] == document.location)) {
         var nKey = document.getElementsByTagName("keyset")[0].appendChild(document.createElement("key"));
-        nKey.id=this.keys[i].split("keyconfig." + aWindow + ".")[1];
+        nKey.id=this.keys[i].split(this.profile)[1];
         nKey.setAttribute("oncommand",key[3]);
       }
 
-      var aKey = document.getElementById(this.keys[i].split("keyconfig." + aWindow + ".")[1]);
-      if(!aKey) continue;
+      var node = document.getElementById(this.keys[i].split(this.profile)[1]);
+      if(!node) continue;
 
-      aKey.removeAttribute("modifiers"); aKey.removeAttribute("key"); aKey.removeAttribute("keycode");
-      if(key[0] == "!") {aKey.removeAttribute("command"); aKey.removeAttribute("oncommand"); continue;}
+      node.removeAttribute("modifiers"); node.removeAttribute("key"); node.removeAttribute("keycode");
+      if(key[0] == "!") {this.removedKeys.appendChild(node); continue;}
 
-      if(key[0]) aKey.setAttribute("modifiers",key[0]);
-      if(key[1]) aKey.setAttribute("key",key[1]);
-      if(key[2]) aKey.setAttribute("keycode",key[2]);
+      if(key[0]) node.setAttribute("modifiers",key[0]);
+      if(key[1]) node.setAttribute("key",key[1]);
+      if(key[2]) node.setAttribute("keycode",key[2]);
     }
   }
 }

@@ -1,0 +1,16 @@
+<!ENTITY keyconfig.title "Keyconfig">
+<!ENTITY keyconfig.label "Configura combinazioni da tastiera...">
+<!ENTITY keyconfig.accesskey "c">
+<!ENTITY keyconfig.apply "Applica">
+<!ENTITY keyconfig.reset "Ripristina">
+<!ENTITY keyconfig.keyid "Nome">
+<!ENTITY keyconfig.keys "Combinazione da tastiera">
+<!ENTITY keyconfig.disable "Disattiva">
+<!ENTITY keyconfig.warn "Le modifiche avranno effetto solo per le nuove finestre.">
+
+<!ENTITY keyconfig.unrecognized "$1 (non riconosciuta)">
+<!ENTITY keyconfig.used "Questa combinazione da tastiera viene già usata da:\n$1\n\nPotrebbe comunque funzionare.">
+<!ENTITY keyconfig.close "Chiudi">
+<!ENTITY keyconfig.onreset "Necessario riavvio">
+<!ENTITY keyconfig.add "Aggiungi una nuova combinazione da tastiera">
+<!ENTITY keyconfig.edit "Modifica questa combinazione da tastiera"> 

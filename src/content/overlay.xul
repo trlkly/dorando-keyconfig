@@ -20,7 +20,7 @@
 
 <commandset id="mainCommandSet">
  <command id="cmd_keyconfig" label="&keyconfig.label;" accesskey="&keyconfig.accesskey;"
-  oncommand='openDialog("chrome://keyconfig/content/","keyconfig", "resizable,modal");'/>
+  oncommand="openDialog('chrome://keyconfig/content/', 'keyconfig', 'resizable');"/>
 </commandset>
 <commandset id="editMenuCommands"><commandset id="mainCommandSet"/></commandset>
 <commandset id="composeCommands"><commandset id="mainCommandSet"/></commandset>
@@ -28,6 +28,8 @@
 
 <script type="application/x-javascript" src="chrome://keyconfig/content/overlay.js"/>
 
-<script><![CDATA[ extLoad.add(30, function(){keyconfig.loadkeys("main");}) ]]></script>
+<script><![CDATA[
+ extLoad.add(30, function(){keyconfig.loadkeys(keyconfig.prefService.getCharPref("keyconfig.profile"));});
+]]></script>
 
 </overlay>
