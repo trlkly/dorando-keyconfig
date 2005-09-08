@@ -7,10 +7,14 @@
 <!ENTITY keyconfig.keys "Clefs">
 <!ENTITY keyconfig.disable "Désactiver">
 <!ENTITY keyconfig.warn "Les changements affectent seulement les nouvelles fenêtres.">
-
 <!ENTITY keyconfig.unrecognized "Non reconnu ($1)">
 <!ENTITY keyconfig.used "Cette clef est déjà utilisée par :\n$1\n\nCependant, cela devrait encore fonctionner.">
 <!ENTITY keyconfig.close "Fermer">
 <!ENTITY keyconfig.onreset "Un redémarrage est nécessaire">
 <!ENTITY keyconfig.add "Ajouter une nouvelle clef">
 <!ENTITY keyconfig.edit "Éditer cette clef">
+
+<!ENTITY keyconfig.global "Globale">
+<!ENTITY keyconfig.editor "Keyconfig - Éditeur de clefs">
+<!ENTITY keyconfig.windows "Éditer les clefs de">
+<!ENTITY keyconfig.copyid "Copier l'ID">

@@ -1,6 +1,6 @@
 keyconfig.xpi: chrome/keyconfig.jar
 	rm -f $@.tmp
-	zip -r $@.tmp install.js install.rdf defaults $<
+	zip -r $@.tmp install.js install.rdf defaults components $<
 	mv -f $@.tmp $@
 
 chrome/keyconfig.jar:

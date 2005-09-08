@@ -12,24 +12,27 @@
  <menuitem id="keyconfig" command="cmd_keyconfig" insertbefore="menu_preferences" key="key_keyconfig"/>
 </menupopup>
 
-<keyset id="mainKeyset">
+<menupopup id="toolsPopup">
+ <menuitem id="keyconfig" command="cmd_keyconfig" insertbefore="menu_preferences" key="key_keyconfig"/>
+</menupopup>
+
+<keyset id="mainKeyset"><keyset id="globalKeyset"/></keyset>
+<keyset id="editMenuKeys"><keyset id="globalKeyset"/></keyset>
+<keyset id="tasksKeys"><keyset id="globalKeyset"/></keyset>
+
+<keyset id="globalKeyset">
  <key id="key_keyconfig" modifiers="accel,shift" keycode="VK_F12" command="cmd_keyconfig"/>
 </keyset>
-<keyset id="editMenuKeys"><keyset id="mainKeyset"/></keyset>
-<keyset id="tasksKeys"><keyset id="mainKeyset"/></keyset>
 
-<commandset id="mainCommandSet">
+<commandset id="mainCommandSet"><commandset id="globalCommandset"/></commandset>
+<commandset id="editMenuCommands"><commandset id="globalCommandset"/></commandset>
+<commandset id="composeCommands"><commandset id="globalCommandset"/></commandset>
+<commandset id="tasksCommands"><commandset id="globalCommandset"/></commandset>
+<commandset id="commands"><commandset id="globalCommandset"/></commandset>
+
+<commandset id="globalCommandset">
  <command id="cmd_keyconfig" label="&keyconfig.label;" accesskey="&keyconfig.accesskey;"
   oncommand="openDialog('chrome://keyconfig/content/', 'keyconfig', 'resizable');"/>
 </commandset>
-<commandset id="editMenuCommands"><commandset id="mainCommandSet"/></commandset>
-<commandset id="composeCommands"><commandset id="mainCommandSet"/></commandset>
-<commandset id="tasksCommands"><commandset id="mainCommandSet"/></commandset>
-
-<script type="application/x-javascript" src="chrome://keyconfig/content/overlay.js"/>
-
-<script><![CDATA[
- extLoad.add(30, function(){keyconfig.loadkeys(keyconfig.prefService.getCharPref("keyconfig.profile"));});
-]]></script>
 
 </overlay>

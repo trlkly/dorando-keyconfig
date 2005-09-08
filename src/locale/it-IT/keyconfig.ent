@@ -7,10 +7,14 @@
 <!ENTITY keyconfig.keys "Combinazione da tastiera">
 <!ENTITY keyconfig.disable "Disattiva">
 <!ENTITY keyconfig.warn "Le modifiche avranno effetto solo per le nuove finestre.">
-
 <!ENTITY keyconfig.unrecognized "$1 (non riconosciuta)">
-<!ENTITY keyconfig.used "Questa combinazione da tastiera viene già usata da:\n$1\n\nIt potrebbe comunque funzionare.">
+<!ENTITY keyconfig.used "Questa combinazione da tastiera viene usata anche da:\n$1\n\nPotrebbe comunque funzionare.">
 <!ENTITY keyconfig.close "Chiudi">
 <!ENTITY keyconfig.onreset "Necessario riavvio">
 <!ENTITY keyconfig.add "Aggiungi una nuova combinazione da tastiera">
-<!ENTITY keyconfig.edit "Modifica questa combinazione da tastiera"> 
+<!ENTITY keyconfig.edit "Modifica questa combinazione da tastiera">
+
+<!ENTITY keyconfig.global "Globale">
+<!ENTITY keyconfig.editor "Keyconfig - Modifica combinazioni">
+<!ENTITY keyconfig.windows "Modifica le combinazioni di">
+<!ENTITY keyconfig.copyid "Copia l'ID">

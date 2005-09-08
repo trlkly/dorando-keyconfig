@@ -11,14 +11,10 @@
 
   <rdf:Seq rdf:about="urn:mozilla:overlays">
    <rdf:li rdf:resource="chrome://browser/content/browser.xul"/>
-   <rdf:li rdf:resource="chrome://browser/content/bookmarks/bookmarksManager.xul"/>
    <rdf:li rdf:resource="chrome://global/content/globalOverlay.xul"/>
    <rdf:li rdf:resource="chrome://messenger/content/messengercompose/messengercompose.xul"/>
   </rdf:Seq>
   <rdf:Seq rdf:about="chrome://browser/content/browser.xul">
-    <rdf:li>chrome://keyconfig/content/overlay.xul</rdf:li>
-  </rdf:Seq>
-  <rdf:Seq rdf:about="chrome://browser/content/bookmarks/bookmarksManager.xul">
     <rdf:li>chrome://keyconfig/content/overlay.xul</rdf:li>
   </rdf:Seq>
   <rdf:Seq rdf:about="chrome://global/content/globalOverlay.xul">
