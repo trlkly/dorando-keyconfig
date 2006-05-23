@@ -15,9 +15,15 @@ function l(a)
 }
 
 l("en-US/");
+
+l("cs-CZ/");
+l("de-DE/");
+l("es-AR/");
 l("fr-FR/");
 l("it-IT/");
 l("ja-JP/");
+l("ru-RU/");
+l("sk-SK/");
 
 if (0 == getLastError())
   performInstall();

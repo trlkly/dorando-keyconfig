@@ -13,6 +13,7 @@
    <rdf:li rdf:resource="chrome://browser/content/browser.xul"/>
    <rdf:li rdf:resource="chrome://global/content/globalOverlay.xul"/>
    <rdf:li rdf:resource="chrome://messenger/content/messengercompose/messengercompose.xul"/>
+   <rdf:li rdf:resource="chrome://xmleditor/content/xmleditor.xul"/>
   </rdf:Seq>
   <rdf:Seq rdf:about="chrome://browser/content/browser.xul">
     <rdf:li>chrome://keyconfig/content/overlay.xul</rdf:li>
@@ -21,6 +22,9 @@
     <rdf:li>chrome://keyconfig/content/overlay.xul</rdf:li>
   </rdf:Seq>
   <rdf:Seq rdf:about="chrome://messenger/content/messengercompose/messengercompose.xul">
+    <rdf:li>chrome://keyconfig/content/overlay.xul</rdf:li>
+  </rdf:Seq>
+  <rdf:Seq rdf:about="chrome://xmleditor/content/xmleditor.xul">
     <rdf:li>chrome://keyconfig/content/overlay.xul</rdf:li>
   </rdf:Seq>
 

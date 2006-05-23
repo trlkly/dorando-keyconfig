@@ -6,52 +6,75 @@
   <rdf:Description rdf:about="urn:mozilla:install-manifest">
     <id>keyconfig@dorando</id>
     <name>keyconfig</name>
-    <version>20050908</version>
+    <version>20050908.4</version>
     <creator>Dorando</creator>
     <contributor>Hadar Hagai</contributor>
     <contributor>MatrixIsAllOver of eXtenZilla.it (it-IT)</contributor>
     <contributor>Mori (fr-FR)</contributor>
     <contributor>SHIMODA Hiroshi (ja-JP)</contributor>
+    <contributor>SlovakSoft (sk-SK)</contributor>
+    <contributor>Tomáš Kopečný (cs-CZ)</contributor>
+    <contributor>ReinekeFux - erweiterungen.de (de-DE)</contributor>
+    <contributor>stoneflash (ru-RU)</contributor>
+    <contributor>ZuGro (es-AR)</contributor>
     <homepageURL>http://mozilla.dorando.at/</homepageURL>
     <description>Rebind your keys.</description>
     <updateURL>http://mozilla.dorando.at/update.rdf</updateURL>
     
     <targetApplication><rdf:Description>
-      <id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</id><!-- Firefox -->
+      <id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</id>
       <minVersion>1.0</minVersion>
-      <maxVersion>1.4</maxVersion>
+      <maxVersion>1.5.0.3</maxVersion>
     </rdf:Description></targetApplication>
     
     <targetApplication><rdf:Description>
-      <id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</id><!-- Thunderbird -->
+      <id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</id>
       <minVersion>1.0</minVersion>
-      <maxVersion>1.4</maxVersion>
+      <maxVersion>1.5.0.2</maxVersion>
     </rdf:Description></targetApplication>
 
     <targetApplication><rdf:Description>
-      <id>{718e30fb-e89b-41dd-9da7-e25a45638b28}</id><!-- Sunbird -->
-      <minVersion>0.2+</minVersion>
-      <maxVersion>0.2+</maxVersion>
+      <id>{718e30fb-e89b-41dd-9da7-e25a45638b28}</id>
+      <minVersion>0.3a1+</minVersion>
+      <maxVersion>0.3a1+</maxVersion>
     </rdf:Description></targetApplication>
 
     <targetApplication><rdf:Description>
-      <id>{136c295a-4a5a-41cf-bf24-5cee526720d5}</id><!-- Nvu -->
+      <id>{136c295a-4a5a-41cf-bf24-5cee526720d5}</id>
       <minVersion>1.0</minVersion>
       <maxVersion>1.0</maxVersion>
     </rdf:Description></targetApplication>
 
-    <targetApplication><rdf:Description><!-- Netscape -->
-      <id>{3db10fab-e461-4c80-8b97-957ad5f8ea47}</id>
+    <targetApplication><rdf:Description>
+      <id>{3a699c0b-c85e-4a8d-baf1-948bdcfb75bd}</id>
+      <minVersion>0.2.5</minVersion>
+      <maxVersion>0.3.1</maxVersion>
+    </rdf:Description></targetApplication>
+
+    <targetApplication><rdf:Description>
+      <id>{a463f10c-3994-11da-9945-000d60ca027b}</id>
       <minVersion>0</minVersion>
       <maxVersion>0</maxVersion>
+    </rdf:Description></targetApplication>
+
+    <targetApplication><rdf:Description>
+      <id>{3db10fab-e461-4c80-8b97-957ad5f8ea47}</id>
+      <minVersion>0.5.13.2</minVersion>
+      <maxVersion>0.5.14.2</maxVersion>
     </rdf:Description></targetApplication>
 
     <file><rdf:Description rdf:about="urn:mozilla:extension:file:keyconfig.jar">
       <package>content/</package>
       <locale>locale/en-US/</locale>
+
+      <locale>locale/cs-CZ/</locale>
+      <locale>locale/de-DE/</locale>
+      <locale>locale/es-AR/</locale>
       <locale>locale/fr-FR/</locale>
       <locale>locale/it-IT/</locale>
       <locale>locale/ja-JP/</locale>
+      <locale>locale/ru-RU/</locale>
+      <locale>locale/sk-SK/</locale>
       <skin>skin/</skin>
     </rdf:Description></file>
   </rdf:Description>
