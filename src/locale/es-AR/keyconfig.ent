@@ -8,7 +8,7 @@
 <!ENTITY keyconfig.disable "Deshabilitar">
 <!ENTITY keyconfig.warn "Los cambios solo tendrán efecto en nuevas ventanas.">
 <!ENTITY keyconfig.unrecognized "Desconocido ($1)">
-<!ENTITY keyconfig.used "Esta tecla ya está siendo usada por:\n$1\n\nIt sin embargo podría funcionar.">
+<!ENTITY keyconfig.used "Esta tecla ya está siendo usada por:\n$1\n\nsin embargo podría funcionar.">
 <!ENTITY keyconfig.close "Cerrar">
 <!ENTITY keyconfig.onreset "Se necesita reiniciar">
 <!ENTITY keyconfig.add "Asignar una nueva combinación">
@@ -16,5 +16,3 @@
 
 <!ENTITY keyconfig.global "Global">
 <!ENTITY keyconfig.editor "Keyconfig - Editor de atajos de teclado">
-<!ENTITY keyconfig.windows "Editar la combinación de teclas de">
-<!ENTITY keyconfig.copyid "Copiar la ID">

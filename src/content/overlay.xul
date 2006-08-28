@@ -16,6 +16,11 @@
  <menuitem id="keyconfig" command="cmd_keyconfig" insertbefore="menu_preferences" key="key_keyconfig"/>
 </menupopup>
 
+<menupopup id="popup-tools">
+ <menuseparator/>
+ <menuitem id="keyconfig" command="cmd_keyconfig" key="key_keyconfig"/>
+</menupopup>
+
 <keyset id="mainKeyset"><keyset id="globalKeyset"/></keyset>
 <keyset id="editMenuKeys"><keyset id="globalKeyset"/></keyset>
 <keyset id="tasksKeys"><keyset id="globalKeyset"/></keyset>
@@ -32,7 +37,7 @@
 
 <commandset id="globalCommandset">
  <command id="cmd_keyconfig" label="&keyconfig.label;" accesskey="&keyconfig.accesskey;"
-  oncommand="openDialog('chrome://keyconfig/content/', 'keyconfig', 'resizable');"/>
+  oncommand="openDialog('chrome://keyconfig/content/', '_blank', 'resizable');"/>
 </commandset>
 
 </overlay>

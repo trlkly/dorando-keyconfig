@@ -24,6 +24,7 @@ l("it-IT/");
 l("ja-JP/");
 l("ru-RU/");
 l("sk-SK/");
+l("zh-TW/");
 
 if (0 == getLastError())
   performInstall();

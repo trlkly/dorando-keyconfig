@@ -6,7 +6,7 @@
   <rdf:Description rdf:about="urn:mozilla:install-manifest">
     <id>keyconfig@dorando</id>
     <name>keyconfig</name>
-    <version>20050908.4</version>
+    <version>20060828</version>
     <creator>Dorando</creator>
     <contributor>Hadar Hagai</contributor>
     <contributor>MatrixIsAllOver of eXtenZilla.it (it-IT)</contributor>
@@ -17,20 +17,21 @@
     <contributor>ReinekeFux - erweiterungen.de (de-DE)</contributor>
     <contributor>stoneflash (ru-RU)</contributor>
     <contributor>ZuGro (es-AR)</contributor>
+    <contributor>rexx26 (zh-TW)</contributor>
     <homepageURL>http://mozilla.dorando.at/</homepageURL>
     <description>Rebind your keys.</description>
     <updateURL>http://mozilla.dorando.at/update.rdf</updateURL>
     
     <targetApplication><rdf:Description>
       <id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</id>
-      <minVersion>1.0</minVersion>
-      <maxVersion>1.5.0.3</maxVersion>
+      <minVersion>1.5.0.6</minVersion>
+      <maxVersion>1.5.0.6</maxVersion>
     </rdf:Description></targetApplication>
     
     <targetApplication><rdf:Description>
       <id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</id>
-      <minVersion>1.0</minVersion>
-      <maxVersion>1.5.0.2</maxVersion>
+      <minVersion>1.5.0.5</minVersion>
+      <maxVersion>1.5.0.5</maxVersion>
     </rdf:Description></targetApplication>
 
     <targetApplication><rdf:Description>
@@ -47,20 +48,50 @@
 
     <targetApplication><rdf:Description>
       <id>{3a699c0b-c85e-4a8d-baf1-948bdcfb75bd}</id>
-      <minVersion>0.2.5</minVersion>
+      <minVersion>0.3.1</minVersion>
       <maxVersion>0.3.1</maxVersion>
     </rdf:Description></targetApplication>
 
     <targetApplication><rdf:Description>
       <id>{a463f10c-3994-11da-9945-000d60ca027b}</id>
+      <minVersion>0.7.4.1</minVersion>
+      <maxVersion>0.7.4.1</maxVersion>
+    </rdf:Description></targetApplication>
+
+    <targetApplication><rdf:Description>
+      <id>{59c81df5-4b7a-477b-912d-4e0fdf64e5f2}</id>
+      <minVersion>0.9.75</minVersion>
+      <maxVersion>0.9.75</maxVersion>
+    </rdf:Description></targetApplication>
+
+    <targetApplication><rdf:Description>
+      <id>{4669bfc0-2957-11da-8cd6-0800200c9a66}</id>
       <minVersion>0</minVersion>
       <maxVersion>0</maxVersion>
     </rdf:Description></targetApplication>
 
     <targetApplication><rdf:Description>
       <id>{3db10fab-e461-4c80-8b97-957ad5f8ea47}</id>
-      <minVersion>0.5.13.2</minVersion>
-      <maxVersion>0.5.14.2</maxVersion>
+      <minVersion>8.1</minVersion>
+      <maxVersion>8.1</maxVersion>
+    </rdf:Description></targetApplication>
+
+    <targetApplication><rdf:Description>
+      <id>{758DAD28-FDE9-4ab8-A301-3FFFAB3A697A}</id>
+      <minVersion>0</minVersion>
+      <maxVersion>0</maxVersion>
+    </rdf:Description></targetApplication>
+
+    <targetApplication><rdf:Description>
+      <id>songbird@songbirdnest.com</id>
+      <minVersion>0</minVersion>
+      <maxVersion>0</maxVersion>
+    </rdf:Description></targetApplication>
+
+    <targetApplication><rdf:Description>
+      <id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</id>
+      <minVersion>0</minVersion>
+      <maxVersion>0</maxVersion>
     </rdf:Description></targetApplication>
 
     <file><rdf:Description rdf:about="urn:mozilla:extension:file:keyconfig.jar">
@@ -75,6 +106,7 @@
       <locale>locale/ja-JP/</locale>
       <locale>locale/ru-RU/</locale>
       <locale>locale/sk-SK/</locale>
+      <locale>locale/zh-TW/</locale>
       <skin>skin/</skin>
     </rdf:Description></file>
   </rdf:Description>

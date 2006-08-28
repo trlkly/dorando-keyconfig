@@ -67,6 +67,8 @@ keyconfigService.prototype = {
   },
 
   init: function() {
+    this.removeEventListener("pageshow",this.keyconfig.service.init,false);
+
     this.keyconfig.removedKeys = this.document.createElement("keyset");
     this.keyconfig.profile = "keyconfig." + this.keyconfig.service.ps.getCharPref("keyconfig.profile") + ".";
 

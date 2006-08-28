@@ -13,29 +13,29 @@
  <textbox id="name" flex="1"/>
  <checkbox id="global" label="&keyconfig.global;"/>
 </hbox>
-<textbox id="code" multiline="true" flex="1"/>
+<textbox id="code" multiline="true" flex="1" onfocus="if(this.value == '/* CODE */') this.value = '';"/>
 
 <script><![CDATA[
 
 var fields;
 
 function onLoad() {
-  fields = {
-    name: document.getElementById("name"),
-    code: document.getElementById("code"),
-    global:  document.getElementById("global")
-  }
-  var key = window.opener.gKeys[window.opener.keyTree.currentIndex];
-  if(key && key.pref[3]) {
-    fields.name.value = key.name;
-    fields.code.value = key.pref[3];
-    fields.key = key;
-    if(!key.pref[4]) fields.global.checked = true;
-  } else {
-    fields.name.value = "key"+Date.now();
-    fields.code.value = "/* CODE */";
-    fields.key = null;
-  }   
+ fields = {
+  name: document.getElementById("name"),
+  code: document.getElementById("code"),
+  global:  document.getElementById("global")
+ }
+ var key = window.arguments[0];
+ if(key && key.pref[3]) {
+  fields.name.value = key.name;
+  fields.code.value = key.pref[3];
+  fields.key = key;
+  if(!key.pref[4]) fields.global.checked = true;
+ } else {
+  fields.name.value = "key"+Date.now();
+  fields.code.value = window.arguments[1] || "/* CODE */";
+  fields.key = null;
+ }   
 }
 
 ]]></script>
