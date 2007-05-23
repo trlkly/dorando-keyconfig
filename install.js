@@ -22,6 +22,7 @@ l("es-AR/");
 l("fr-FR/");
 l("it-IT/");
 l("ja-JP/");
+l("ko-KR/");
 l("ru-RU/");
 l("sk-SK/");
 l("zh-TW/");
