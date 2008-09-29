@@ -1,0 +1,19 @@
+content keyconfig jar:keyconfig.zip!/content/
+locale  keyconfig en-US jar:keyconfig.zip!/locale/en-US/
+locale  keyconfig cs-CZ jar:keyconfig.zip!/locale/cs-CZ/
+locale  keyconfig de-DE jar:keyconfig.zip!/locale/de-DE/
+locale  keyconfig es-AR jar:keyconfig.zip!/locale/es-AR/
+locale  keyconfig fr-FR jar:keyconfig.zip!/locale/fr-FR/
+locale  keyconfig it-IT jar:keyconfig.zip!/locale/it-IT/
+locale  keyconfig ja-JP jar:keyconfig.zip!/locale/ja-JP/
+locale  keyconfig ko-KR jar:keyconfig.zip!/locale/ko-KR/
+locale  keyconfig ru-RU jar:keyconfig.zip!/locale/ru-RU/
+locale  keyconfig sk-SK jar:keyconfig.zip!/locale/sk-SK/
+locale  keyconfig zh-CN jar:keyconfig.zip!/locale/zh-CN/
+locale  keyconfig zh-TW jar:keyconfig.zip!/locale/zh-TW/
+skin    keyconfig classic/1.0 jar:keyconfig.zip!/skin/
+
+overlay chrome://browser/content/browser.xul chrome://keyconfig/content/overlay.xul
+overlay chrome://messenger/content/mailWindowOverlay.xul chrome://keyconfig/content/overlay.xul
+overlay chrome://communicator/content/tasksOverlay.xul chrome://keyconfig/content/overlay.xul
+style   chrome://keyconfig/content/keyconfig.xul chrome://keyconfig/skin/keyconfig.css

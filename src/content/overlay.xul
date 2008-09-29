@@ -4,38 +4,26 @@
 
 <overlay id="keyconfigOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
-<menupopup id="taskPopup">
- <menuitem id="keyconfig" command="cmd_keyconfig" insertbefore="menu_preferences" key="key_keyconfig"/>
-</menupopup>
-
 <menupopup id="menu_ToolsPopup">
  <menuitem id="keyconfig" command="cmd_keyconfig" insertbefore="menu_preferences" key="key_keyconfig"/>
 </menupopup>
 
-<menupopup id="toolsPopup">
+<menupopup id="taskPopup">
  <menuitem id="keyconfig" command="cmd_keyconfig" insertbefore="menu_preferences" key="key_keyconfig"/>
 </menupopup>
 
-<menupopup id="popup-tools">
- <menuseparator/>
- <menuitem id="keyconfig" command="cmd_keyconfig" key="key_keyconfig"/>
-</menupopup>
-
-<keyset id="mainKeyset"><keyset id="globalKeyset"/></keyset>
-<keyset id="editMenuKeys"><keyset id="globalKeyset"/></keyset>
-<keyset id="tasksKeys"><keyset id="globalKeyset"/></keyset>
-
-<keyset id="globalKeyset">
+<keyset id="mainKeyset">
+ <key id="key_keyconfig" modifiers="accel,shift" keycode="VK_F12" command="cmd_keyconfig"/>
+</keyset>
+<keyset id="tasksKeys">
  <key id="key_keyconfig" modifiers="accel,shift" keycode="VK_F12" command="cmd_keyconfig"/>
 </keyset>
 
-<commandset id="mainCommandSet"><commandset id="globalCommandset"/></commandset>
-<commandset id="editMenuCommands"><commandset id="globalCommandset"/></commandset>
-<commandset id="composeCommands"><commandset id="globalCommandset"/></commandset>
-<commandset id="tasksCommands"><commandset id="globalCommandset"/></commandset>
-<commandset id="commands"><commandset id="globalCommandset"/></commandset>
-
-<commandset id="globalCommandset">
+<commandset id="mainCommandSet">
+ <command id="cmd_keyconfig" label="&keyconfig.label;" accesskey="&keyconfig.accesskey;"
+  oncommand="openDialog('chrome://keyconfig/content/', '_blank', 'resizable');"/>
+</commandset>
+<commandset id="tasksCommands">
  <command id="cmd_keyconfig" label="&keyconfig.label;" accesskey="&keyconfig.accesskey;"
   oncommand="openDialog('chrome://keyconfig/content/', '_blank', 'resizable');"/>
 </commandset>

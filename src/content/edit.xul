@@ -25,6 +25,7 @@ function onLoad() {
   code: document.getElementById("code"),
   global:  document.getElementById("global")
  }
+ try { fields.name.editor.enableUndo(false); fields.code.editor.enableUndo(false); }catch(err){}
  var key = window.arguments[0];
  if(key && key.pref[3]) {
   fields.name.value = key.name;
@@ -36,6 +37,7 @@ function onLoad() {
   fields.code.value = window.arguments[1] || "/* CODE */";
   fields.key = null;
  }   
+ try { fields.name.editor.enableUndo(true); fields.code.editor.enableUndo(true); }catch(err){}
 }
 
 ]]></script>

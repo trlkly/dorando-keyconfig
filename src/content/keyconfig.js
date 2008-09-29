@@ -4,8 +4,7 @@ var gUnicodeConverter = Components.classes['@mozilla.org/intl/scriptableunicodec
                                   .createInstance(Components.interfaces.nsIScriptableUnicodeConverter);
 var gClipboardHelper = Components.classes["@mozilla.org/widget/clipboardhelper;1"]
                                  .getService(Components.interfaces.nsIClipboardHelper);
-var gProfile = window.opener.keyconfig.profile;
-var gDocument, gLocation, gKeys, gUsedKeys, gRemovedKeys;
+var gDocument, gLocation, gProfile, gKeys, gUsedKeys, gRemovedKeys;
 
 var gExtra2, keyTree, gEditbox, gEdit, gModified;
 
@@ -13,9 +12,10 @@ var gLocaleKeys;
 var gPlatformKeys = new Object();
 var gVKNames = [];
 var gReverseNames;
+var tryToInvalidateCache;
 
 function onLoad() {
- if(!gPrefService.prefHasUserValue("keyconfig.version")) gPrefService.setIntPref("keyconfig.version","1");
+ if(gPrefService.prefHasUserValue("keyconfig.version")) gPrefService.clearUserPref("keyconfig.version");
  gUnicodeConverter.charset = "UTF-8";
 
  gExtra2 = document.documentElement.getButton("extra2");
@@ -42,17 +42,13 @@ function onLoad() {
  }
  gVKNames[8] = "VK_BACK";
 
- var isThunderbird;
- if(Components.interfaces.nsIXULAppInfo) {
-  var XULAppInfo = Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULAppInfo);
-  isThunderbird = XULAppInfo.name == "Thunderbird";
- } else {
-  isThunderbird = window.navigator.vendor == "Thunderbird";
- }
+ var XULAppInfo = Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULAppInfo);
+ var isThunderbird = XULAppInfo.name == "Thunderbird";
 
  gReverseNames = isThunderbird ^ gPrefService.getBoolPref("keyconfig.nicenames.reverse_order");
+ tryToInvalidateCache = gPrefService.getBoolPref("keyconfig.tryToInvalidateCache");
 
- if(gPrefService.getBoolPref("keyconfig.devmode")){ this.getFormattedKey = function(a,b,c) {return a+"+"+b+c;} }
+ if(gPrefService.getBoolPref("keyconfig.devmode")){ this.getFormattedKey = function(a,b,c) {return (a+"+"+b+c).replace(/null/g,"");} }
 
  var windowList = document.getElementById("window-list");
  var i, l;
@@ -68,6 +64,7 @@ function init(target) {
 
  gDocument = target.document;
  gLocation = gDocument.location.href;
+ gProfile = target.keyconfig.profile;
 
  gKeys = [];
  gRemovedKeys = target.keyconfig.removedKeys;
@@ -78,7 +75,7 @@ function init(target) {
 
  detectUsedKeys();
 
- var elem = keyTree.getElementsByAttribute("sortActive","true")[0];
+ var elem = keyTree.getElementsByAttribute("sortActive","true")[0] || document.getElementById("name");
 
  gKeys.sort(sorter[elem.id]);
  if(elem.getAttribute("sortDirection") == "descending") gKeys.reverse();
@@ -89,13 +86,14 @@ function init(target) {
  gExtra2.label = gStrings.add;
  gEditbox.setAttribute("disabled","true");
  gEdit.value = "";
- gEdit.keys = ["!","",""];
+ gEdit.keys = ["!",null,null];
 }
 
 function onOK() { if(gModified && gPrefService.getBoolPref("keyconfig.warnOnClose")) alert(gStrings.warn); }
 
 function getFormattedKey(modifiers,key,keycode) {
  if(modifiers == "shift,alt,control,accel" && keycode == "VK_SCROLL_LOCK") return "";
+ if(key == "" || (!key && keycode == "")) return "";
 
  var val = "";
  if(modifiers) val = modifiers
@@ -172,17 +170,19 @@ function Recognize(event) {
 
  modifiers = modifiers.join(" ");
 
- var key = ""; var keycode = "";
+ var key = null; var keycode = null;
  if(event.charCode) key = String.fromCharCode(event.charCode).toUpperCase();
  else { keycode = gVKNames[event.keyCode]; if(!keycode) return;}
 
  gEdit.value = getFormattedKey(modifiers,key,keycode);
  gEdit.keys = [modifiers,key,keycode];
 
- if(gPrefService.getBoolPref("keyconfig.warnOnDuplicate") && gEdit.value != gEdit.key.shortcut && gUsedKeys[gEdit.value])
-  alert(gStrings.used.replace("$1",gUsedKeys[gEdit.value].join("\n")));
+ if(!(gPrefService.getBoolPref("keyconfig.allowAltCodes") && modifiers == "alt" && key && !isNaN(key))) {
+  if(gPrefService.getBoolPref("keyconfig.warnOnDuplicate") && gEdit.value != gEdit.key.shortcut && gUsedKeys[gEdit.value])
+   window.setTimeout(alert,0,gStrings.used.replace("$1",gUsedKeys[gEdit.value].join("\n")));
 
- gEdit.nextSibling.focus();
+   gEdit.nextSibling.focus();
+ }
 }
 
 function Apply() {
@@ -207,18 +207,34 @@ function Apply() {
  node.removeAttribute("charcode");
  node.removeAttribute("keyconfig");
 
- if(key.pref[0] == "!") gRemovedKeys.appendChild(node);
+ if(key.pref[0] == "!") {
+  gRemovedKeys.appendChild(node);
+ } else {
+  if(key.pref[0]) node.setAttribute("modifiers",key.pref[0]);
+  if(key.pref[1]) node.setAttribute("key",key.pref[1]);
+  if(key.pref[2]) node.setAttribute("keycode",key.pref[2]);
 
- if(key.pref[0] && key.pref[0] != "!") node.setAttribute("modifiers",key.pref[0]);
- if(key.pref[1]) node.setAttribute("key",key.pref[1]);
- if(key.pref[2]) node.setAttribute("keycode",key.pref[2]);
+  if(tryToInvalidateCache) try {
+   if(!key.node.parentNode.parentNode)
+    gDocument.getElementsByTagName("keyset")[0].appendChild(key.node);
+
+   node = node.cloneNode(true);
+   key.node.parentNode.replaceChild(node, key.node);
+   key.node = node;
+
+   var keyset = key.node;
+   while(keyset.parentNode && keyset.parentNode.localName == "keyset")
+    keyset = keyset.parentNode;
+   keyset.parentNode.insertBefore(keyset, keyset.nextSibling);
+  } catch(err){}
+ }
 
  keyTree.treeBoxObject.invalidate();
 }
 
 function Disable() {
  gEdit.value = "";
- gEdit.keys = ["!","",""];
+ gEdit.keys = ["!",null,null];
  Apply();
 }
 
@@ -230,7 +246,7 @@ function Reset() {
 
  key.pref = [];
  key.shortcut = gEdit.value = gStrings.onreset;
- gEdit.keys = ["!","",""];
+ gEdit.keys = ["!",null,null];
 
  gExtra2.label = gStrings.add;
  node.setAttribute("keyconfig","resetted");
@@ -246,9 +262,9 @@ function Key(aKey) {
  this.node = aKey;
  this.name = getNameForKey(aKey);
  this.shortcut = getFormattedKey(
-  aKey.getAttribute("modifiers"),
-  aKey.getAttribute("key").toUpperCase() || aKey.getAttribute("charcode").toUpperCase(),
-  aKey.getAttribute("keycode")
+  aKey.hasAttribute("modifiers") ? aKey.getAttribute("modifiers") : null,
+  aKey.hasAttribute("key") ? aKey.getAttribute("key").toUpperCase() : aKey.hasAttribute("charcode") ? aKey.getAttribute("charcode").toUpperCase() : null,
+  aKey.hasAttribute("keycode") ? aKey.getAttribute("keycode") : null
  );
  this.id = aKey.id;
  if(aKey.getAttribute("keyconfig") == "resetted") this.shortcut = gStrings.onreset;
@@ -301,14 +317,14 @@ function openEditor(type) {
 }
 
 function closeEditor(fields) {
- gModified = true;
  var key;
 
  if(fields.key) {
   key = fields.key;
   gPrefService.clearUserPref(gProfile+key.node.id);
  } else {
-  key = {node: document.createElement("key"), shortcut: "", pref: ["!",,,";"]}
+  gModified = true;
+  key = {node: gDocument.createElement("key"), shortcut: "", pref: ["!",,,";"]}
   gKeys.push(key);
   gRemovedKeys.appendChild(key.node);
   keyTree.treeBoxObject.rowCountChanged(keyTree.view.rowCount-1,1);
@@ -410,6 +426,7 @@ function getCodeFor(node) {
   return node.getAttribute("oncommand")
  else if(node.hasAttribute("command"))
   return gDocument.getElementById(node.getAttribute("command")).getAttribute("oncommand");
+ return null;
 }
 
 function copyKey() {

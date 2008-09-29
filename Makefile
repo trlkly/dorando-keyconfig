@@ -1,12 +1,12 @@
-keyconfig.xpi: chrome/keyconfig.jar
+keyconfig.xpi: keyconfig.zip
 	rm -f $@.tmp
-	zip -r $@.tmp install.js install.rdf defaults components $<
+	zip -r $@.tmp install.rdf chrome.manifest defaults components $<
 	mv -f $@.tmp $@
 
-chrome/keyconfig.jar:
-	mkdir -p chrome
+keyconfig.zip:
 	rm -f $@.tmp
 	cd src; zip -r ../$@.tmp *
 	mv -f $@.tmp $@
 
-clean: ; -rm -rf keyconfig.xpi chrome
+clean: ; -rm -rf keyconfig.xpi keyconfig.zip
+

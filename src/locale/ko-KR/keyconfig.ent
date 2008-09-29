@@ -1,5 +1,5 @@
 <!ENTITY keyconfig.title "단축키 설정">
-<!ENTITY keyconfig.label "단축키 설정...">
+<!ENTITY keyconfig.label "단축키 설정…">
 <!ENTITY keyconfig.accesskey "k">
 <!ENTITY keyconfig.apply "적용">
 <!ENTITY keyconfig.reset "삭제">
