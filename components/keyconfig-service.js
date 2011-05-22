@@ -1,9 +1,10 @@
 function NSGetModule(compMgr, fileSpec) { return Module; }
+function NSGetFactory() { return Factory; }
 
 var Module = {
  CID: Components.ID("{e9f7950e-d78d-4aaa-900a-c43588052eba}"),
  contractID: "@dorando.at/keyconfig;1",
- className: "keyconfig Service",
+ className: "keyconfigService",
 
  registerSelf: function (aComponentManager, aFileSpec, aLocation, aType) {
   aComponentManager = aComponentManager.QueryInterface(Components.interfaces.nsIComponentRegistrar);
@@ -63,7 +64,8 @@ keyconfigService.prototype = {
 
   this.removeEventListener("pageshow",this.keyconfig.service.init,false);
 
-  this.keyconfig.removedKeys = this.document.createElement("keyset");
+  this.keyconfig.removedKeys = this.document.documentElement.appendChild(this.document.createElement("keyconfig"));
+
   this.keyconfig.profile = "keyconfig." + this.keyconfig.service.ps.getCharPref("keyconfig.profile") + ".";
 
   var i, l;
@@ -71,7 +73,7 @@ keyconfigService.prototype = {
   var keyset = this.document.getElementsByTagName("keyset")[0] ||
                this.document.documentElement.appendChild(this.document.createElement("keyset"));
 
-  var code = this.keyconfig.service.ps.getCharPref("keyconfig.global.20080929");
+  var code = this.keyconfig.service.ps.getCharPref("keyconfig.global.20110522");
   if(code) {
    this.keyconfig.service.document = this.document;
    with(this.keyconfig.service) eval(code);
@@ -99,7 +101,7 @@ keyconfigService.prototype = {
    }
 
    node.removeAttribute("modifiers"); node.removeAttribute("key"); node.removeAttribute("keycode");
-   node.removeAttribute("charcode");
+   node.removeAttribute("charcode"); node.removeAttribute("keytext");
    if(key[0] == "!") {this.keyconfig.removedKeys.appendChild(node); continue;}
 
    if(key[0]) node.setAttribute("modifiers",key[0]);

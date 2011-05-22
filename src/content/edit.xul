@@ -6,7 +6,7 @@
 
 <dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
  id="keyconfig-editor" width="400" height="400" title="&keyconfig.editor;" persist="width,height,screenX,screenY"
- onload="onLoad();" ondialogaccept="window.opener.closeEditor(fields);">
+ onload="onLoad();" ondialogaccept="window.arguments[2].closeEditor(fields);">
 
 <hbox align="center">
  <label value="&keyconfig.keyid;"/>

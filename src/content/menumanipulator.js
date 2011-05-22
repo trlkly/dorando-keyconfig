@@ -9,7 +9,7 @@ if(!document.getElementById("keyconfig") &&
  ]);
  Set("label","Keyconfig\u2026");
  Set("key","key_keyconfig");
- Set("oncommand","openDialog('chrome://keyconfig/content/', '_blank', 'resizable');");
+ Set("oncommand","openDialog('chrome://keyconfig/content/', '_blank', 'resizable', window);");
 
  delete this.node.menumanipulator;
 }

@@ -6,13 +6,12 @@
 <!ENTITY keyconfig.keyid "Name">
 <!ENTITY keyconfig.keys "Shortcut">
 <!ENTITY keyconfig.disable "Disable">
-<!ENTITY keyconfig.warn "Changes affect only new windows.">
-<!ENTITY keyconfig.unrecognized "Unrecognized ($1)">
-<!ENTITY keyconfig.used "This key is already used by:\n$1\n\nIt might still work, though.">
+<!ENTITY keyconfig.unrecognized "&lt;$1>">
+<!ENTITY keyconfig.used "This shortcut is already used by:\n$1\n\nIt might still work, though.">
 <!ENTITY keyconfig.close "Close">
 <!ENTITY keyconfig.onreset "Restart required">
 <!ENTITY keyconfig.add "Add a new key">
 <!ENTITY keyconfig.edit "Edit this key">
-
 <!ENTITY keyconfig.global "Global">
 <!ENTITY keyconfig.editor "Keyconfig - Key Editor">
+<!ENTITY keyconfig.disabled "&lt;Disabled>">

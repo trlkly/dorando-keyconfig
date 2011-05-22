@@ -12,20 +12,13 @@
  <menuitem id="keyconfig" command="cmd_keyconfig" insertbefore="menu_preferences" key="key_keyconfig"/>
 </menupopup>
 
-<keyset id="mainKeyset">
- <key id="key_keyconfig" modifiers="accel,shift" keycode="VK_F12" command="cmd_keyconfig"/>
-</keyset>
-<keyset id="tasksKeys">
+<keyset>
  <key id="key_keyconfig" modifiers="accel,shift" keycode="VK_F12" command="cmd_keyconfig"/>
 </keyset>
 
-<commandset id="mainCommandSet">
+<commandset>
  <command id="cmd_keyconfig" label="&keyconfig.label;" accesskey="&keyconfig.accesskey;"
-  oncommand="openDialog('chrome://keyconfig/content/', '_blank', 'resizable');"/>
-</commandset>
-<commandset id="tasksCommands">
- <command id="cmd_keyconfig" label="&keyconfig.label;" accesskey="&keyconfig.accesskey;"
-  oncommand="openDialog('chrome://keyconfig/content/', '_blank', 'resizable');"/>
+  oncommand="openDialog('chrome://keyconfig/content/', '_blank', 'resizable', window);"/>
 </commandset>
 
 </overlay>

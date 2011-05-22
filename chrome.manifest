@@ -1,6 +1,7 @@
 content keyconfig jar:keyconfig.zip!/content/
 locale  keyconfig en-US jar:keyconfig.zip!/locale/en-US/
 locale  keyconfig cs-CZ jar:keyconfig.zip!/locale/cs-CZ/
+locale  keyconfig da-DK jar:keyconfig.zip!/locale/da-DK/
 locale  keyconfig de-DE jar:keyconfig.zip!/locale/de-DE/
 locale  keyconfig es-AR jar:keyconfig.zip!/locale/es-AR/
 locale  keyconfig fr-FR jar:keyconfig.zip!/locale/fr-FR/
@@ -15,5 +16,10 @@ skin    keyconfig classic/1.0 jar:keyconfig.zip!/skin/
 
 overlay chrome://browser/content/browser.xul chrome://keyconfig/content/overlay.xul
 overlay chrome://messenger/content/mailWindowOverlay.xul chrome://keyconfig/content/overlay.xul
+overlay chrome://messenger/content/messengercompose/messengercompose.xul chrome://keyconfig/content/overlay.xul
 overlay chrome://communicator/content/tasksOverlay.xul chrome://keyconfig/content/overlay.xul
 style   chrome://keyconfig/content/keyconfig.xul chrome://keyconfig/skin/keyconfig.css
+
+component {e9f7950e-d78d-4aaa-900a-c43588052eba} components/keyconfig-service.js
+contract @dorando.at/keyconfig;1 {e9f7950e-d78d-4aaa-900a-c43588052eba}
+category profile-after-change keyconfigService @dorando.at/keyconfig;1

@@ -6,3 +6,10 @@ treechildren::-moz-tree-cell-text(duplicate) {
  background-color: Highlight;
  color: HighlightText !important;
 }
+
+
+treechildren::-moz-tree-cell-text(selected, duplicate) {
+ background-color: HighlightText;
+ color: Highlight !important;
+}
+

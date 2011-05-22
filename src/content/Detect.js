@@ -12,6 +12,6 @@ if(!/^(Firefox|Thunderbird|SeaMonkey|Browser)$/.test(XULAppInfo.name)) {
 eval(modules.join(" "));
 
 ps.deleteBranch("keyconfig.global.");
-ps.setCharPref("keyconfig.global.20080929",modules.join(" "));
+ps.setCharPref("keyconfig.global.20110522",modules.join(" "));
 
 delete modules;

@@ -18,20 +18,26 @@
 <script>
 var gStrings = {
   title: "&keyconfig.title;",
-  warn: "&keyconfig.warn;",
   used: "&keyconfig.used;",
   add: "&keyconfig.add;",
   edit: "&keyconfig.edit;",
   onreset: "&keyconfig.onreset;",
-  unrecognized: "&keyconfig.unrecognized;"
+  unrecognized: "&keyconfig.unrecognized;",
+  disabled: "&keyconfig.disabled;"
 }
 
 var keyname = {
   "BrowserReload();": "key_reload",
-  cmd_handleBackspace: "goBackKb",
   goBackKb2: "goBackKb",
   goForwardKb2: "goForwardKb"
 }
+
+if(gPrefService.getPrefType("browser.backspace_action"))
+ if(gPrefService.getIntPref("browser.backspace_action") == 0) {
+  keyname["cmd_handleBackspace"] = "goBackKb";
+  keyname["cmd_handleShiftBackspace"] = "goForwardKb";
+}
+
 </script>
 
 <script src="chrome://keyconfig/locale/keynames.js"/>
@@ -62,16 +68,16 @@ var keyname = {
 </tree>
 
 <popupset>
- <popup id="mainPopup">
+ <menupopup id="mainPopup">
   <menuitem label="&copyCmd.label;" oncommand="copyKey();"/>
   <menuseparator/>
   <menuitem label="&keyconfig.add;" oncommand="openEditor(0);"/>
   <menuitem label="&keyconfig.edit;" oncommand="openEditor(2);"/>
- </popup>
+ </menupopup>
 </popupset>
 
 <groupbox id="editbox" orient="horizontal" disabled="true">
-<textbox id="edit" observes="editbox" flex="1" onclick="this.select();" onkeypress="Recognize(event);"/>
+<textbox id="edit" observes="editbox" flex="1" onfocus="this.select();" onkeypress="Recognize(event);"/>
 <button observes="editbox" label="&keyconfig.apply;" oncommand="Apply();" />
 <button observes="editbox" label="&keyconfig.disable;" oncommand="Disable();" />
 <button observes="editbox" label="&keyconfig.reset;" oncommand="Reset();" />

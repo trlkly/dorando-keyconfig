@@ -6,7 +6,7 @@
   <rdf:Description rdf:about="urn:mozilla:install-manifest">
     <id>keyconfig@dorando</id>
     <name>keyconfig</name>
-    <version>20080929</version>
+    <version>20110522</version>
     <creator>Dorando</creator>
     <contributor>Hadar Hagai</contributor>
     <contributor>MatrixIsAllOver of eXtenZilla.it (it-IT)</contributor>
@@ -20,8 +20,11 @@
     <contributor>rexx26 (zh-TW)</contributor>
     <contributor>kyo (ko-KR)</contributor>
     <contributor>Cye3s (zh-CN)</contributor>
+    <contributor>Jørgen Rasmussen (da-DK)</contributor>
+    <contributor>Jack Black (fr-FR)</contributor>
     <homepageURL>http://mozilla.dorando.at/</homepageURL>
     <description>Rebind your keys.</description>
+    <optionsURL>chrome://keyconfig/content/</optionsURL>
     <updateURL>http://mozilla.dorando.at/keyconfig/update.rdf</updateURL>
     <updateKey>MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDDK6mnSoPBfEHUfK+8UiWIXmfS5mP+ZBV+w0s0i40FCG5G609oo7aOEgkFSNiGCmzCibLF1
      rS0mHY6GGKAEJmQwJ8WA/QNaHsS4mTAeINPMeSlm+Pw3hN61/9IaU+RjuukKPedICrY09tm8zQEJu1VtTx4KMg1GWSLaAQxIQzxJQIDAQAB</updateKey>
@@ -29,37 +32,7 @@
     <targetApplication><rdf:Description>
       <id>toolkit@mozilla.org</id>
       <minVersion>1.9a8</minVersion>
-      <maxVersion>1.9.0.3</maxVersion>
-    </rdf:Description></targetApplication>
-
-    <targetApplication><rdf:Description>
-      <id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</id>
-      <minVersion>2.0.0.17</minVersion>
-      <maxVersion>3.0.3</maxVersion>
-    </rdf:Description></targetApplication>
-
-    <targetApplication><rdf:Description>
-      <id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</id>
-      <minVersion>2.0.0.17</minVersion>
-      <maxVersion>2.0.0.17</maxVersion>
-    </rdf:Description></targetApplication>
-
-    <targetApplication><rdf:Description>
-      <id>{718e30fb-e89b-41dd-9da7-e25a45638b28}</id>
-      <minVersion>0.9</minVersion>
-      <maxVersion>0.9</maxVersion>
-    </rdf:Description></targetApplication>
-
-    <targetApplication><rdf:Description>
-      <id>{a463f10c-3994-11da-9945-000d60ca027b}</id>
-      <minVersion>1.2.5</minVersion>
-      <maxVersion>1.2.5</maxVersion>
-    </rdf:Description></targetApplication>
-
-    <targetApplication><rdf:Description>
-      <id>{59c81df5-4b7a-477b-912d-4e0fdf64e5f2}</id>
-      <minVersion>0.9.83</minVersion>
-      <maxVersion>0.9.83</maxVersion>
+      <maxVersion>2.0.1</maxVersion>
     </rdf:Description></targetApplication>
 
   </rdf:Description>

@@ -6,7 +6,7 @@ if(!document.getElementById("key_keyconfig")) {
  var keyset = this.document.getElementsByTagName("keyset")[0];
  var key = keyset.appendChild(this.document.createElement("key"));
  key.id = "key_keyconfig";
- key.setAttribute("oncommand","openDialog('chrome://keyconfig/content/', '_blank', 'resizable');");
+ key.setAttribute("oncommand","openDialog('chrome://keyconfig/content/', '_blank', 'resizable', window);");
  key.setAttribute("modifiers","control shift");
  key.setAttribute("keycode","VK_F12");
 }

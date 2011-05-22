@@ -1,9 +1,8 @@
 pref("keyconfig.devmode", false);
 pref("keyconfig.nicenames.reverse_order", false);
 pref("keyconfig.profile", "main");
-pref("keyconfig.warnOnClose", true);
 pref("keyconfig.warnOnDuplicate", true);
 pref("keyconfig.allowAltCodes", true);
-pref("keyconfig.global.20080929", "Module('Detect');");
+pref("keyconfig.global.20110522", "Module('Detect');");
 pref("keyconfig.UIHook", "");
-pref("keyconfig.tryToInvalidateCache", true);
+pref("keyconfig.hideDisabled", false);
