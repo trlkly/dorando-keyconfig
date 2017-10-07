@@ -4,35 +4,59 @@
  xmlns="http://www.mozilla.org/2004/em-rdf#">
 
   <rdf:Description rdf:about="urn:mozilla:install-manifest">
-    <id>keyconfig@dorando</id>
-    <name>keyconfig</name>
-    <version>20110522</version>
+    <id>keyconfig@mozilla.dorando.at</id>
+    <name>Dorando keyconfig</name>
+    <version>2016.2</version>
     <creator>Dorando</creator>
     <contributor>Hadar Hagai</contributor>
-    <contributor>MatrixIsAllOver of eXtenZilla.it (it-IT)</contributor>
-    <contributor>Mori (fr-FR)</contributor>
-    <contributor>SHIMODA Hiroshi (ja-JP)</contributor>
-    <contributor>SlovakSoft (sk-SK)</contributor>
-    <contributor>Tomáš Kopečný (cs-CZ)</contributor>
-    <contributor>ReinekeFux - erweiterungen.de (de-DE)</contributor>
-    <contributor>stoneflash (ru-RU)</contributor>
-    <contributor>ZuGro (es-AR)</contributor>
-    <contributor>rexx26 (zh-TW)</contributor>
-    <contributor>kyo (ko-KR)</contributor>
-    <contributor>Cye3s (zh-CN)</contributor>
-    <contributor>Jørgen Rasmussen (da-DK)</contributor>
-    <contributor>Jack Black (fr-FR)</contributor>
+	<contributor>trlkly</contributor>
+    <translator>MatrixIsAllOver of eXtenZilla.it (it-IT)</translator>
+    <translator>Mori (fr-FR)</translator>
+    <translator>SHIMODA Hiroshi (ja-JP)</translator>
+    <translator>SlovakSoft (sk-SK)</translator>
+    <translator>Tomáš Kopečný (cs-CZ)</translator>
+    <translator>ReinekeFux - erweiterungen.de (de-DE)</translator>
+    <translator>stoneflash (ru-RU)</translator>
+    <translator>ZuGro (es-AR)</translator>
+    <translator>rexx26 (zh-TW)</translator>
+    <translator>kyo (ko-KR)</translator>
+    <translator>Cye3s (zh-CN)</translator>
+    <translator>Jørgen Rasmussen (da-DK)</translator>
+    <translator>Jack Black (fr-FR)</translator>
     <homepageURL>http://mozilla.dorando.at/</homepageURL>
     <description>Rebind your keys.</description>
     <optionsURL>chrome://keyconfig/content/</optionsURL>
-    <updateURL>http://mozilla.dorando.at/keyconfig/update.rdf</updateURL>
-    <updateKey>MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDDK6mnSoPBfEHUfK+8UiWIXmfS5mP+ZBV+w0s0i40FCG5G609oo7aOEgkFSNiGCmzCibLF1
-     rS0mHY6GGKAEJmQwJ8WA/QNaHsS4mTAeINPMeSlm+Pw3hN61/9IaU+RjuukKPedICrY09tm8zQEJu1VtTx4KMg1GWSLaAQxIQzxJQIDAQAB</updateKey>
+	<type>2</type> <!-- type=extension --> 
+	<multiprocessCompatible>true</multiprocessCompatible>
 
     <targetApplication><rdf:Description>
-      <id>toolkit@mozilla.org</id>
-      <minVersion>1.9a8</minVersion>
-      <maxVersion>2.0.1</maxVersion>
+      <id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</id> <!--Firefox-->
+      <minVersion>4.0</minVersion>
+      <maxVersion>43.*</maxVersion>
+    </rdf:Description></targetApplication>
+	
+    <targetApplication><rdf:Description>
+      <id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</id> <!--Thunderbird-->
+      <minVersion>5.0b1</minVersion>
+      <maxVersion>37.*</maxVersion>
+    </rdf:Description></targetApplication>
+
+    <targetApplication><rdf:Description>
+      <id>{aa3c5121-dab2-40e2-81ca-7ea25febc110}</id> <!--Firefox (Android)-->
+      <minVersion>10.0a1</minVersion>
+      <maxVersion>37.*</maxVersion>
+    </rdf:Description></targetApplication>
+	
+	<targetApplication><rdf:Description>
+      <id>{a23983c0-fd0e-11dc-95ff-0800200c9a66}</id> <!--Mobile-->
+      <minVersion>4.0</minVersion>
+      <maxVersion>37.*</maxVersion>
+    </rdf:Description></targetApplication>
+	
+	<targetApplication><rdf:Description>
+      <id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</id> <!--SeaMonkey-->
+      <minVersion>2.1</minVersion>
+      <maxVersion>2.33.*</maxVersion>
     </rdf:Description></targetApplication>
 
   </rdf:Description>

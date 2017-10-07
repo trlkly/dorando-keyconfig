@@ -47,9 +47,9 @@ function onLoad() {
  var XULAppInfo = Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULAppInfo);
  var isThunderbird = XULAppInfo.name == "Thunderbird";
 
- gReverseNames = isThunderbird ^ gPrefService.getBoolPref("keyconfig.nicenames.reverse_order");
+ gReverseNames = isThunderbird ^ gPrefService.getBoolPref("extensions.dorandoKeyConfig.nicenames.reverse_order");
 
- if(gPrefService.getBoolPref("keyconfig.devmode")){ this.getFormattedKey = function(a,b,c) {return (a+"+"+b+c).replace(/null/g,"");} }
+ if(gPrefService.getBoolPref("extensions.dorandoKeyConfig.devmode")){ this.getFormattedKey = function(a,b,c) {return (a+"+"+b+c).replace(/null/g,"");} }
 
  var target = window.arguments ? window.arguments[0] : WindowMediator.getEnumerator(null).getNext();
 
@@ -74,7 +74,7 @@ function init(target) {
  gKeys = [];
  gRemovedKeys = target.keyconfig.removedKeys;
 
- var hideDisabled = gPrefService.getBoolPref("keyconfig.hideDisabled");
+ var hideDisabled = gPrefService.getBoolPref("extensions.dorandoKeyConfig.hideDisabled");
 
  var keys = gDocument.getElementsByTagName("key");
  for(var i = 0, l = keys.length; i < l; i++) {
@@ -189,9 +189,9 @@ function Recognize(event) {
  gEdit.value = getFormattedKey(modifiers,key,keycode);
  gEdit.keys = [modifiers,key,keycode];
 
- if(!(gPrefService.getBoolPref("keyconfig.allowAltCodes") && modifiers == "alt" && key && !isNaN(key))) {
-  if(gPrefService.getBoolPref("keyconfig.warnOnDuplicate") && gEdit.value != gEdit.key.shortcut && gUsedKeys[gEdit.value])
-   window.setTimeout(alert,0,gStrings.used.replace("$1",gUsedKeys[gEdit.value].join("\n")));
+ if(!(gPrefService.getBoolPref("extensions.dorandoKeyConfig.allowAltCodes") && modifiers == "alt" && key && !isNaN(key))) {
+  if(gPrefService.getBoolPref("extensions.dorandoKeyConfig.warnOnDuplicate") && gEdit.value != gEdit.key.shortcut && gUsedKeys[gEdit.value])
+   window.setTimeout(function(){ window.alert(gStrings.used.replace("$1",gUsedKeys[gEdit.value].join("\n"))) },0);
 
    gEdit.nextSibling.focus();
  }
@@ -267,7 +267,7 @@ function Reset() {
  try{ gPrefService.clearUserPref(gProfile+key.id); } catch(err) {}
 
  key.pref = [];
- key.shortcut = gEdit.value = gStrings.onreset;
+ key.shortcut = gEdit.value = gStrings.uponreset;
  gEdit.keys = ["!",null,null];
 
  gExtra2.label = gStrings.add;
@@ -295,7 +295,7 @@ function Key(aKey) {
   aKey.hasAttribute("keycode") ? aKey.getAttribute("keycode") : null
  );
  this.id = aKey.id;
- if(aKey.getAttribute("keyconfig") == "resetted") this.shortcut = gStrings.onreset;
+ if(aKey.getAttribute("keyconfig") == "resetted") this.shortcut = gStrings.uponreset;
 
  try {
   this.pref = gPrefService.getComplexValue(gProfile+aKey.id, Components.interfaces.nsISupportsString).data.split("][");
@@ -330,7 +330,7 @@ function detectUsedKeys() {
    gUsedKeys[gKeys[i].shortcut]=[gKeys[i].name];
  }
 
- gUsedKeys[gStrings.disabled] = gUsedKeys[gStrings.onreset] = {length: 0}
+ gUsedKeys[gStrings.disabled] = gUsedKeys[gStrings.uponreset] = {length: 0}
 }
 
 function openEditor(type) {
@@ -394,7 +394,9 @@ function closeEditor(fields) {
    node = target.keyconfig.removedKeys.appendChild(target.document.createElement("key"));
 
   node.id = key.id;
-  node.setAttribute("oncommand",key.code);
+  //node.addEventListener("command",key.code);
+     node.setAttribute("oncommand",key.code);
+
  }
 
  keyTree.treeBoxObject.invalidateRow(keyTree.currentIndex);
@@ -414,15 +416,18 @@ var keyView = {
  canDrop: function() { return false; },
  getParentIndex: function() { return -1; },
 
- getCellProperties: function(row,col,props) {
-  var key = gKeys[row];
-  if(key.hardcoded) props.AppendElement(gAtomService.getAtom("hardcoded"));
-  if(key.disabled) props.AppendElement(gAtomService.getAtom("disabled"));
-  if(key.pref[3]) props.AppendElement(gAtomService.getAtom("custom"));
-  if(key.pref.length) props.AppendElement(gAtomService.getAtom("user"));
-  if((col.id || col) == "shortcut" && gUsedKeys[key.shortcut].length > 1)
-   props.AppendElement(gAtomService.getAtom("duplicate"));
- },
+getCellProperties: function(row,col) {
+ var key = gKeys[row];
+// try { console.log ( key + " " + key.shortcut ) } catch(e) {};
+//try { if (key.shortcut ) return "reset"; } catch(e) {console.log(e)}
+ if(key.hardcoded) return "hardcoded";
+ if(key.disabled) return "disabled";
+ if(key.pref[3]) return "custom";
+ if(key.pref.length) return "user";
+ if((col.id || col) == "shortcut" && gUsedKeys[key.shortcut].length > 1)
+  return "duplicate";
+ return "";
+},
  getColumnProperties: function(){},
  selectionChanged: function() {
   var key = gKeys[this.selection.currentIndex];

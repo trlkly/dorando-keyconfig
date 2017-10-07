@@ -66,19 +66,40 @@ keyconfigService.prototype = {
 
   this.keyconfig.removedKeys = this.document.documentElement.appendChild(this.document.createElement("keyconfig"));
 
-  this.keyconfig.profile = "keyconfig." + this.keyconfig.service.ps.getCharPref("keyconfig.profile") + ".";
+ 
+  if (this.keyconfig.service.ps.prefHasUserValue("keyconfig.global.20110522")) {
+    var oldBranch = "keyconfig."; var newBranch = "extensions.dorandoKeyConfig.";
+    var oldKeys = this.keyconfig.service.ps.getChildList(oldBranch)
+    for (var i = 0; i < oldKeys.length; i++) {
+      var newKey = newBranch + oldKeys[i].split(oldBranch)[1];
+      switch (this.keyconfig.service.ps.getPrefType(oldKeys[i])) {
+        case 32: //PREF_STRING
+          var value = this.keyconfig.service.ps.getCharPref(oldKeys[i]);
+          this.keyconfig.service.ps.setCharPref(newKey, value);
+          break;
+
+        case 64: //PREF_INT
+          var value = this.keyconfig.service.ps.getIntPref(oldKeys[i]);
+          this.keyconfig.service.ps.setIntPref(newKey, value);
+          break;
+        
+        case 128: //PREF_BOOLEAN
+          var value = this.keyconfig.service.ps.getBoolPref(oldKeys[i]);
+          this.keyconfig.service.ps.setBoolPref(newKey, value);
+          break;
+      }
+    }
+    this.keyconfig.service.ps.deleteBranch(oldBranch); 
+  }
+  
+  this.keyconfig.service.ps.deleteBranch("extensions.dorandoKeyConfig.global")
+  
+  this.keyconfig.profile = "extensions.dorandoKeyConfig." + this.keyconfig.service.ps.getCharPref("extensions.dorandoKeyConfig.profile") + ".";
 
   var i, l;
 
   var keyset = this.document.getElementsByTagName("keyset")[0] ||
                this.document.documentElement.appendChild(this.document.createElement("keyset"));
-
-  var code = this.keyconfig.service.ps.getCharPref("keyconfig.global.20110522");
-  if(code) {
-   this.keyconfig.service.document = this.document;
-   with(this.keyconfig.service) eval(code);
-   delete this.keyconfig.service.document;
-  }
 
   var nodes = this.document.getElementsByTagName("key");
   for(i = 0, l = nodes.length; i < l; i++) if(!nodes[i].id)
@@ -94,7 +115,8 @@ keyconfigService.prototype = {
    if(key[3] && (!key[4] || key[4] == this.document.location)) {
     node = keyset.appendChild(this.document.createElement("key"));
     node.id = keys[i].substr(this.keyconfig.profile.length);
-    node.setAttribute("oncommand",key[3]);
+//    node.addEventListener("command",key[3]);
+    node.setAttribute("oncommand",key[3])
    } else {
     node = this.document.getElementById(keys[i].substr(this.keyconfig.profile.length));
     if(!node) continue;

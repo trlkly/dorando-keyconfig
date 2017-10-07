@@ -21,7 +21,7 @@ var gStrings = {
   used: "&keyconfig.used;",
   add: "&keyconfig.add;",
   edit: "&keyconfig.edit;",
-  onreset: "&keyconfig.onreset;",
+  uponreset: "&keyconfig.onreset;",
   unrecognized: "&keyconfig.unrecognized;",
   disabled: "&keyconfig.disabled;"
 }

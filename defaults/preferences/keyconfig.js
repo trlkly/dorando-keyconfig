@@ -1,8 +1,6 @@
-pref("keyconfig.devmode", false);
-pref("keyconfig.nicenames.reverse_order", false);
-pref("keyconfig.profile", "main");
-pref("keyconfig.warnOnDuplicate", true);
-pref("keyconfig.allowAltCodes", true);
-pref("keyconfig.global.20110522", "Module('Detect');");
-pref("keyconfig.UIHook", "");
-pref("keyconfig.hideDisabled", false);
+pref("extensions.dorandoKeyConfig.devmode", false);
+pref("extensions.dorandoKeyConfig.nicenames.reverse_order", false);
+pref("extensions.dorandoKeyConfig.profile", "main");
+pref("extensions.dorandoKeyConfig.warnOnDuplicate", true);
+pref("extensions.dorandoKeyConfig.allowAltCodes", true);
+pref("extensions.dorandoKeyConfig.hideDisabled", false);

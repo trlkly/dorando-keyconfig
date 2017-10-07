@@ -1,12 +1,7 @@
-keyconfig.xpi: keyconfig.zip
+keyconfig.xpi:
 	rm -f $@.tmp
-	zip -r $@.tmp install.rdf chrome.manifest defaults components $<
+	zip -r $@.tmp install.rdf chrome.manifest README.md icon.png icon64.png defaults components content locale skin
 	mv -f $@.tmp $@
 
-keyconfig.zip:
-	rm -f $@.tmp
-	cd src; zip -r ../$@.tmp *
-	mv -f $@.tmp $@
-
-clean: ; -rm -rf keyconfig.xpi keyconfig.zip
+clean: ; -rm -rf keyconfig.xpi
 
