@@ -1,0 +1,17 @@
+<!ENTITY keyconfig.title "Keyconfig">
+<!ENTITY keyconfig.label "Keyconfig…">
+<!ENTITY keyconfig.accesskey "k">
+<!ENTITY keyconfig.apply "Appliquer">
+<!ENTITY keyconfig.reset "Réinitialiser">
+<!ENTITY keyconfig.keyid "Identité">
+<!ENTITY keyconfig.keys "Raccourci">
+<!ENTITY keyconfig.disable "Désactiver">
+<!ENTITY keyconfig.unrecognized "&lt;$1>">
+<!ENTITY keyconfig.used "Ce raccourci est déjà utilisée par :\n$1\n\nCependant, cela devrait encore fonctionner.">
+<!ENTITY keyconfig.close "Fermer">
+<!ENTITY keyconfig.onreset "Un redémarrage est nécessaire">
+<!ENTITY keyconfig.add "Ajouter une nouvelle clef">
+<!ENTITY keyconfig.edit "Éditer cette clef">
+<!ENTITY keyconfig.global "Globale">
+<!ENTITY keyconfig.editor "Keyconfig - Éditeur de clefs">
+<!ENTITY keyconfig.disabled "&lt;Désactivé>">

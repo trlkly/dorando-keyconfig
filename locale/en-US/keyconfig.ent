@@ -1,0 +1,17 @@
+<!ENTITY keyconfig.title "Keyconfig">
+<!ENTITY keyconfig.label "Keyconfig…">
+<!ENTITY keyconfig.accesskey "k">
+<!ENTITY keyconfig.apply "Apply">
+<!ENTITY keyconfig.reset "Reset">
+<!ENTITY keyconfig.keyid "Name">
+<!ENTITY keyconfig.keys "Shortcut">
+<!ENTITY keyconfig.disable "Disable">
+<!ENTITY keyconfig.unrecognized "&lt;$1>">
+<!ENTITY keyconfig.used "This shortcut is already used by:\n$1\n\nIt might still work, though.">
+<!ENTITY keyconfig.close "Close">
+<!ENTITY keyconfig.onreset "Restart required">
+<!ENTITY keyconfig.add "Add a new key">
+<!ENTITY keyconfig.edit "Edit this key">
+<!ENTITY keyconfig.global "Global">
+<!ENTITY keyconfig.editor "Keyconfig - Key Editor">
+<!ENTITY keyconfig.disabled "&lt;Disabled>">

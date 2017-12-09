@@ -1,0 +1,17 @@
+<!ENTITY keyconfig.title "Keyconfig">
+<!ENTITY keyconfig.label "Keyconfig…">
+<!ENTITY keyconfig.accesskey "k">
+<!ENTITY keyconfig.apply "Anvend">
+<!ENTITY keyconfig.reset "Nulstil">
+<!ENTITY keyconfig.keyid "Navn">
+<!ENTITY keyconfig.keys "Genvej">
+<!ENTITY keyconfig.disable "Deaktiver">
+<!ENTITY keyconfig.unrecognized "&lt;$1>">
+<!ENTITY keyconfig.used "Denne tast anvendes allerede af:\n$1\n\nDen fungerer måske alligevel.">
+<!ENTITY keyconfig.close "Luk">
+<!ENTITY keyconfig.onreset "Genstart kræves">
+<!ENTITY keyconfig.add "Tilføj en ny tast">
+<!ENTITY keyconfig.edit "Rediger denne tast">
+<!ENTITY keyconfig.global "Global">
+<!ENTITY keyconfig.editor "Keyconfig - Rediger tastaturgenveje">
+<!ENTITY keyconfig.disabled "&lt;Disabled>">

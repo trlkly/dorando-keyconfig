@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/"?>
+
+<!DOCTYPE dialog [
+<!ENTITY % keyconfig SYSTEM "chrome://keyconfig/locale/keyconfig.ent">
+<!ENTITY % textcontext SYSTEM "chrome://global/locale/textcontext.dtd">
+%keyconfig; %textcontext;
+]>
+
+<dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+ id="keyconfig-window" title="&keyconfig.title;" width="400" height="400" persist="width,height,screenX,screenY"
+ buttons="accept,extra2" buttonlabelaccept="&keyconfig.close;" buttonlabelextra2="&keyconfig.add;"
+ onload="onLoad();" ondialogaccept="onOK();" ondialogextra2="openEditor(1);"
+>
+
+<script src="chrome://keyconfig/content/keyconfig.js"/>
+<script>
+var gStrings = {
+  title: "&keyconfig.title;",
+  used: "&keyconfig.used;",
+  add: "&keyconfig.add;",
+  edit: "&keyconfig.edit;",
+  uponreset: "&keyconfig.onreset;",
+  unrecognized: "&keyconfig.unrecognized;",
+  disabled: "&keyconfig.disabled;"
+}
+
+var keyname = {
+  "BrowserReload();": "key_reload",
+  goBackKb2: "goBackKb",
+  goForwardKb2: "goForwardKb"
+}
+
+if(gPrefService.getPrefType("browser.backspace_action"))
+ if(gPrefService.getIntPref("browser.backspace_action") == 0) {
+  keyname["cmd_handleBackspace"] = "goBackKb";
+  keyname["cmd_handleShiftBackspace"] = "goForwardKb";
+}
+
+</script>
+
+<script src="chrome://keyconfig/locale/keynames.js"/>
+<stringbundle id="platformKeys" src="chrome://global-platform/locale/platformKeys.properties"/>
+<stringbundle id="localeKeys" src="chrome://global/locale/keys.properties"/>
+
+<template id="window-mediator">
+ <rule><menuitem uri="rdf:*" label="rdf:http://home.netscape.com/NC-rdf#Name"/></rule>
+</template>
+
+<menulist id="window-list" oncommand="switchWindow(event);">
+ <menupopup datasources="rdf:window-mediator" ref="NC:WindowMediatorRoot" template="window-mediator"/>
+</menulist>
+
+<tree id="key-tree" flex="1" enableColumnDrag="true" height="300" seltype="single" onselect="keyView.selectionChanged();"
+ context="mainPopup">
+ <treecols>
+  <treecol id="name" label="&keyconfig.keyid;" flex="1" sortDirection="ascending" sortActive="true"
+   persist="width,ordinal,sortDirection,sortActive,hidden"/>
+  <splitter class="tree-splitter"/>
+  <treecol id="shortcut" label="&keyconfig.keys;" flex="1" persist="width,ordinal,sortDirection,sortActive,hidden"/>
+  <splitter class="tree-splitter"/>
+  <treecol id="id" label="ID" flex="1" hidden="true" persist="width,ordinal,sortDirection,sortActive,hidden"/>
+ </treecols>
+
+ <treechildren alternatingbackground="true" ondblclick="openEditor(2);"/>
+
+</tree>
+
+<popupset>
+ <menupopup id="mainPopup">
+  <menuitem label="&copyCmd.label;" oncommand="copyKey();"/>
+  <menuseparator/>
+  <menuitem label="&keyconfig.add;" oncommand="openEditor(0);"/>
+  <menuitem label="&keyconfig.edit;" oncommand="openEditor(2);"/>
+ </menupopup>
+</popupset>
+
+<groupbox id="editbox" orient="horizontal" disabled="true">
+<textbox id="edit" observes="editbox" flex="1" onfocus="this.select();" onkeypress="Recognize(event);"/>
+<button observes="editbox" label="&keyconfig.apply;" oncommand="Apply();" />
+<button observes="editbox" label="&keyconfig.disable;" oncommand="Disable();" />
+<button observes="editbox" label="&keyconfig.reset;" oncommand="Reset();" />
+</groupbox>
+
+<keyset id="keyconfigKeyset">
+ <key id="key_copy" label="&copyCmd.label;" modifiers="accel" key="c" oncommand="copyKey();"/>
+</keyset>
+
+</dialog> 

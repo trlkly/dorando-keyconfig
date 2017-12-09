@@ -1,0 +1,25 @@
+content keyconfig content/
+locale  keyconfig en-US locale/en-US/
+locale  keyconfig cs-CZ locale/cs-CZ/
+locale  keyconfig da-DK locale/da-DK/
+locale  keyconfig de-DE locale/de-DE/
+locale  keyconfig es-AR locale/es-AR/
+locale  keyconfig fr-FR locale/fr-FR/
+locale  keyconfig it-IT locale/it-IT/
+locale  keyconfig ja-JP locale/ja-JP/
+locale  keyconfig ko-KR locale/ko-KR/
+locale  keyconfig ru-RU locale/ru-RU/
+locale  keyconfig sk-SK locale/sk-SK/
+locale  keyconfig zh-CN locale/zh-CN/
+locale  keyconfig zh-TW locale/zh-TW/
+skin    keyconfig classic/1.0 skin/
+
+overlay chrome://browser/content/browser.xul chrome://keyconfig/content/overlay.xul
+overlay chrome://messenger/content/mailWindowOverlay.xul chrome://keyconfig/content/overlay.xul
+overlay chrome://messenger/content/messengercompose/messengercompose.xul chrome://keyconfig/content/overlay.xul
+overlay chrome://communicator/content/tasksOverlay.xul chrome://keyconfig/content/overlay.xul
+style   chrome://keyconfig/content/keyconfig.xul chrome://keyconfig/skin/keyconfig.css
+
+component {e9f7950e-d78d-4aaa-900a-c43588052eba} components/keyconfig-service.js
+contract @dorando.at/keyconfig;1 {e9f7950e-d78d-4aaa-900a-c43588052eba}
+category profile-after-change keyconfigService @dorando.at/keyconfig;1

@@ -1,0 +1,17 @@
+<!ENTITY keyconfig.title "Keyconfig">
+<!ENTITY keyconfig.label "Configura combinazioni da tastiera…">
+<!ENTITY keyconfig.accesskey "c">
+<!ENTITY keyconfig.apply "Applica">
+<!ENTITY keyconfig.reset "Ripristina">
+<!ENTITY keyconfig.keyid "Nome">
+<!ENTITY keyconfig.keys "Combinazione da tastiera">
+<!ENTITY keyconfig.disable "Disattiva">
+<!ENTITY keyconfig.unrecognized "&lt;$1>">
+<!ENTITY keyconfig.used "Questa combinazione da tastiera viene usata anche da:\n$1\n\nPotrebbe comunque funzionare.">
+<!ENTITY keyconfig.close "Chiudi">
+<!ENTITY keyconfig.onreset "Necessario riavvio">
+<!ENTITY keyconfig.add "Aggiungi una nuova combinazione da tastiera">
+<!ENTITY keyconfig.edit "Modifica questa combinazione da tastiera">
+<!ENTITY keyconfig.global "Globale">
+<!ENTITY keyconfig.editor "Keyconfig - Modifica combinazioni">
+<!ENTITY keyconfig.disabled "&lt;Disabled>">

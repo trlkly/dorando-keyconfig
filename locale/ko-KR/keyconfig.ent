@@ -1,0 +1,17 @@
+<!ENTITY keyconfig.title "단축키 설정">
+<!ENTITY keyconfig.label "단축키 설정…">
+<!ENTITY keyconfig.accesskey "k">
+<!ENTITY keyconfig.apply "적용">
+<!ENTITY keyconfig.reset "삭제">
+<!ENTITY keyconfig.keyid "이름">
+<!ENTITY keyconfig.keys "단축키">
+<!ENTITY keyconfig.disable "해제">
+<!ENTITY keyconfig.unrecognized "&lt;$1>">
+<!ENTITY keyconfig.used "이 단축키는 이미 사용 중 입니다. ($1)">
+<!ENTITY keyconfig.close "닫기">
+<!ENTITY keyconfig.onreset "재시작 필요">
+<!ENTITY keyconfig.add "단축키 추가">
+<!ENTITY keyconfig.edit "단축키 편집">
+<!ENTITY keyconfig.global "전체적용">
+<!ENTITY keyconfig.editor "단축키 설정 - 코드 편집">
+<!ENTITY keyconfig.disabled "&lt;Disabled>">

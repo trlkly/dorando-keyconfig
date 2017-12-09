@@ -1,0 +1,17 @@
+<!ENTITY keyconfig.title "Keyconfig">
+<!ENTITY keyconfig.label "Configurar atajos de teclado...">
+<!ENTITY keyconfig.accesskey "j">
+<!ENTITY keyconfig.apply "Aplicar">
+<!ENTITY keyconfig.reset "Restaurar">
+<!ENTITY keyconfig.keyid "Nombre">
+<!ENTITY keyconfig.keys "Combinación">
+<!ENTITY keyconfig.disable "Deshabilitar">
+<!ENTITY keyconfig.unrecognized "&lt;$1>">
+<!ENTITY keyconfig.used "Esta tecla ya está siendo usada por:\n$1\n\nsin embargo podría funcionar.">
+<!ENTITY keyconfig.close "Cerrar">
+<!ENTITY keyconfig.onreset "Se necesita reiniciar">
+<!ENTITY keyconfig.add "Asignar una nueva combinación">
+<!ENTITY keyconfig.edit "Editar esta combinación">
+<!ENTITY keyconfig.global "Global">
+<!ENTITY keyconfig.editor "Keyconfig - Editor de atajos de teclado">
+<!ENTITY keyconfig.disabled "&lt;Disabled>">

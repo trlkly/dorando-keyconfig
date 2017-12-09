@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/"?>
+
+<!DOCTYPE dialog SYSTEM "chrome://keyconfig/locale/keyconfig.ent">
+
+<dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+ id="keyconfig-editor" width="400" height="400" title="&keyconfig.editor;" persist="width,height,screenX,screenY"
+ onload="onLoad();" ondialogaccept="window.arguments[2].closeEditor(fields);">
+
+<hbox align="center">
+ <label value="&keyconfig.keyid;"/>
+ <textbox id="name" flex="1"/>
+ <checkbox id="global" label="&keyconfig.global;"/>
+</hbox>
+<textbox id="code" multiline="true" flex="1" onfocus="if(this.value == '/* CODE */') this.value = '';"/>
+
+<script><![CDATA[
+
+var fields;
+
+function onLoad() {
+ fields = {
+  name: document.getElementById("name"),
+  code: document.getElementById("code"),
+  global:  document.getElementById("global")
+ }
+ try { fields.name.editor.enableUndo(false); fields.code.editor.enableUndo(false); }catch(err){}
+ var key = window.arguments[0];
+ if(key && key.pref[3]) {
+  fields.name.value = key.name;
+  fields.code.value = key.pref[3];
+  fields.key = key;
+  if(!key.pref[4]) fields.global.checked = true;
+ } else {
+  fields.name.value = "key"+Date.now();
+  fields.code.value = window.arguments[1] || "/* CODE */";
+  fields.key = null;
+ }   
+ try { fields.name.editor.enableUndo(true); fields.code.editor.enableUndo(true); }catch(err){}
+}
+
+]]></script>
+
+</dialog>

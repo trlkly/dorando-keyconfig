@@ -1,0 +1,29 @@
+treechildren::-moz-tree-cell-text(hardcoded) {
+ color: darkorange;
+}
+
+treechildren::-moz-tree-cell-text(disabled) {
+ color: red;
+}
+
+treechildren::-moz-tree-cell-text(custom) {
+ color: magenta;
+}
+
+treechildren::-moz-tree-cell-text(user) {
+ color: deepskyblue;
+}
+
+treechildren::-moz-tree-cell-text(duplicate) {
+ background-color: Highlight;
+ color: HighlightText !important;
+}
+
+treechildren::-moz-tree-cell-text(selected, duplicate) {
+ background-color: HighlightText;
+ color: Highlight !important;
+}
+
+treechildren::-moz-tree-cell-text(reset) {
+  color: blue
+}

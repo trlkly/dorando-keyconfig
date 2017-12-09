@@ -1,0 +1,17 @@
+<!ENTITY keyconfig.title "Keyconfig - Tastaturkürzel anpassen">
+<!ENTITY keyconfig.label "Tastaturkürzel anpassen…">
+<!ENTITY keyconfig.accesskey "k">
+<!ENTITY keyconfig.apply "Übernehmen">
+<!ENTITY keyconfig.reset "Zurücksetzen">
+<!ENTITY keyconfig.keyid "Name">
+<!ENTITY keyconfig.keys "Tastenkombination">
+<!ENTITY keyconfig.disable "Deaktivieren">
+<!ENTITY keyconfig.unrecognized "&lt;$1>">
+<!ENTITY keyconfig.used "Diese Kombination ist bereits in Gebrauch für:\n$1\n\nEventuell funktioniert sie aber dennoch.">
+<!ENTITY keyconfig.close "Schließen">
+<!ENTITY keyconfig.onreset "Neustart erforderlich">
+<!ENTITY keyconfig.add "Neues Tastaturkürzel hinzufügen">
+<!ENTITY keyconfig.edit "Dieses Tastaturkürzel bearbeiten">
+<!ENTITY keyconfig.global "Global">
+<!ENTITY keyconfig.editor "Keyconfig - Tastaturkürzel bearbeiten">
+<!ENTITY keyconfig.disabled "&lt;Disabled>">

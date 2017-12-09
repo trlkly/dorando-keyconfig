@@ -1,0 +1,17 @@
+<!ENTITY keyconfig.title "Keyconfig">
+<!ENTITY keyconfig.label "Keyconfig…">
+<!ENTITY keyconfig.accesskey "K">
+<!ENTITY keyconfig.apply "Použít">
+<!ENTITY keyconfig.reset "Obnovit">
+<!ENTITY keyconfig.keyid "Název">
+<!ENTITY keyconfig.keys "Kláv. zkratka">
+<!ENTITY keyconfig.disable "Zakázat">
+<!ENTITY keyconfig.unrecognized "&lt;$1>">
+<!ENTITY keyconfig.used "Tato zkratka se používá:\n$1\n\nMůže však fungovat.">
+<!ENTITY keyconfig.close "Zavřít">
+<!ENTITY keyconfig.onreset "Vyžaduje restart">
+<!ENTITY keyconfig.add "Přidat novou zkratku">
+<!ENTITY keyconfig.edit "Upravit zkratku">
+<!ENTITY keyconfig.global "Všeobecná">
+<!ENTITY keyconfig.editor "Keyconfig - Editor kláv. zkratek">
+<!ENTITY keyconfig.disabled "&lt;Disabled>">

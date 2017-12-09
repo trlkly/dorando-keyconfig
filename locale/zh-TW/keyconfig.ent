@@ -1,0 +1,17 @@
+<!ENTITY keyconfig.title "Keyconfig">
+<!ENTITY keyconfig.label "Keyconfig…">
+<!ENTITY keyconfig.accesskey "k">
+<!ENTITY keyconfig.apply "套用">
+<!ENTITY keyconfig.reset "重設">
+<!ENTITY keyconfig.keyid "id">
+<!ENTITY keyconfig.keys "快速鍵">
+<!ENTITY keyconfig.disable "停用">
+<!ENTITY keyconfig.unrecognized "&lt;$1>">
+<!ENTITY keyconfig.used "這個快速鍵已經被\n$1\n使用\n\n但他依然有效.">
+<!ENTITY keyconfig.close "關閉">
+<!ENTITY keyconfig.onreset "需要重新啟動">
+<!ENTITY keyconfig.add "新增快速鍵">
+<!ENTITY keyconfig.edit "編輯快速鍵">
+<!ENTITY keyconfig.global "全域">
+<!ENTITY keyconfig.editor "Keyconfig - 編輯器">
+<!ENTITY keyconfig.disabled "&lt;Disabled>">

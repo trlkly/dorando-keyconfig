@@ -1,0 +1,17 @@
+<!ENTITY keyconfig.title "Keyconfig">
+<!ENTITY keyconfig.label "Keyconfig…">
+<!ENTITY keyconfig.accesskey "k">
+<!ENTITY keyconfig.apply "应用">
+<!ENTITY keyconfig.reset "重置">
+<!ENTITY keyconfig.keyid "ID">
+<!ENTITY keyconfig.keys "快捷键">
+<!ENTITY keyconfig.disable "禁用">
+<!ENTITY keyconfig.unrecognized "&lt;$1>">
+<!ENTITY keyconfig.used "此快捷键已经被\n$1\n使用\n\n但它依然有效.">
+<!ENTITY keyconfig.close "关闭">
+<!ENTITY keyconfig.onreset "需要重新启动">
+<!ENTITY keyconfig.add "新增快捷键">
+<!ENTITY keyconfig.edit "编辑快捷键">
+<!ENTITY keyconfig.global "全局">
+<!ENTITY keyconfig.editor "Keyconfig - 编辑器">
+<!ENTITY keyconfig.disabled "&lt;Disabled>">

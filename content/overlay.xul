@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE overlay SYSTEM "chrome://keyconfig/locale/keyconfig.ent">
+
+<overlay id="keyconfigOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+<menupopup id="menu_ToolsPopup">
+ <menuitem id="keyconfig" command="cmd_keyconfig" insertbefore="menu_preferences" key="key_keyconfig"/>
+</menupopup>
+
+<menupopup id="taskPopup">
+ <menuitem id="keyconfig" command="cmd_keyconfig" insertbefore="menu_preferences" key="key_keyconfig"/>
+</menupopup>
+
+<keyset>
+ <key id="key_keyconfig" modifiers="accel,shift" keycode="VK_F12" command="cmd_keyconfig"/>
+</keyset>
+
+<commandset>
+ <command id="cmd_keyconfig" label="&keyconfig.label;" accesskey="&keyconfig.accesskey;"
+  oncommand="openDialog('chrome://keyconfig/content/', '_blank', 'resizable', window);"/>
+</commandset>
+
+</overlay>

@@ -1,0 +1,17 @@
+<!ENTITY keyconfig.title "Keyconfig">
+<!ENTITY keyconfig.label "キーボードショートカットのカスタマイズ...">
+<!ENTITY keyconfig.accesskey "k">
+<!ENTITY keyconfig.apply "適用">
+<!ENTITY keyconfig.reset "初期化">
+<!ENTITY keyconfig.keyid "名前">
+<!ENTITY keyconfig.keys "ショートカット">
+<!ENTITY keyconfig.disable "キーを削除">
+<!ENTITY keyconfig.unrecognized "&lt;$1>">
+<!ENTITY keyconfig.used "このキーはすでに以下の機能に割り当てられています:\n$1\n\nこのままキーを割り当てると、この機能も同時に働く可能性があります">
+<!ENTITY keyconfig.close "閉じる">
+<!ENTITY keyconfig.onreset "再起動が必要です">
+<!ENTITY keyconfig.add "新しいキーを追加">
+<!ENTITY keyconfig.edit "このキーを編集">
+<!ENTITY keyconfig.global "Global">
+<!ENTITY keyconfig.editor "Keyconfig - Key Editor">
+<!ENTITY keyconfig.disabled "&lt;Disabled>">

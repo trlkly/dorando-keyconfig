@@ -1,0 +1,17 @@
+<!ENTITY keyconfig.title "Keyconfig">
+<!ENTITY keyconfig.label "Горячие клавиши…">
+<!ENTITY keyconfig.accesskey "Г">
+<!ENTITY keyconfig.apply "Применить">
+<!ENTITY keyconfig.reset "Сбросить">
+<!ENTITY keyconfig.keyid "Действие">
+<!ENTITY keyconfig.keys "Комбинация">
+<!ENTITY keyconfig.disable "Отключить">
+<!ENTITY keyconfig.unrecognized "&lt;$1>">
+<!ENTITY keyconfig.used "Комбинация уже используется: $1">
+<!ENTITY keyconfig.close "Закрыть">
+<!ENTITY keyconfig.onreset "Нужен рестарт">
+<!ENTITY keyconfig.add "Добавить новое действие">
+<!ENTITY keyconfig.edit "Редактировать это действие">
+<!ENTITY keyconfig.global "Global">
+<!ENTITY keyconfig.editor "Keyconfig - Редактор действий">
+<!ENTITY keyconfig.disabled "&lt;Disabled>">
