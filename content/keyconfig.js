@@ -1,6 +1,5 @@
 var gPrefService = Components.classes['@mozilla.org/preferences-service;1']
                    .getService(Components.interfaces.nsIPrefService).getBranch("");
-var gAtomService = Components.classes["@mozilla.org/atom-service;1"].getService(Components.interfaces.nsIAtomService);
 var gUnicodeConverter = Components.classes['@mozilla.org/intl/scriptableunicodeconverter']
                                   .createInstance(Components.interfaces.nsIScriptableUnicodeConverter);
 var gClipboardHelper = Components.classes["@mozilla.org/widget/clipboardhelper;1"]
