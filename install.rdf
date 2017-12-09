@@ -32,31 +32,31 @@
     <targetApplication><rdf:Description>
       <id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</id> <!--Firefox-->
       <minVersion>4.0</minVersion>
-      <maxVersion>43.*</maxVersion>
+      <maxVersion>56.*</maxVersion>
     </rdf:Description></targetApplication>
 	
     <targetApplication><rdf:Description>
       <id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</id> <!--Thunderbird-->
       <minVersion>5.0b1</minVersion>
-      <maxVersion>37.*</maxVersion>
+      <maxVersion>58.*</maxVersion>
     </rdf:Description></targetApplication>
 
     <targetApplication><rdf:Description>
       <id>{aa3c5121-dab2-40e2-81ca-7ea25febc110}</id> <!--Firefox (Android)-->
       <minVersion>10.0a1</minVersion>
-      <maxVersion>37.*</maxVersion>
+      <maxVersion>56.*</maxVersion>
     </rdf:Description></targetApplication>
 	
 	<targetApplication><rdf:Description>
       <id>{a23983c0-fd0e-11dc-95ff-0800200c9a66}</id> <!--Mobile-->
       <minVersion>4.0</minVersion>
-      <maxVersion>37.*</maxVersion>
+      <maxVersion>56.*</maxVersion>
     </rdf:Description></targetApplication>
 	
 	<targetApplication><rdf:Description>
       <id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</id> <!--SeaMonkey-->
       <minVersion>2.1</minVersion>
-      <maxVersion>2.33.*</maxVersion>
+      <maxVersion>2.46</maxVersion>
     </rdf:Description></targetApplication>
 
   </rdf:Description>
