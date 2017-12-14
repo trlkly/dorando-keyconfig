@@ -6,7 +6,7 @@
   <rdf:Description rdf:about="urn:mozilla:install-manifest">
     <id>keyconfig@mozilla.dorando.at</id>
     <name>Dorando keyconfig</name>
-    <version>2016.2</version>
+    <version>2017.1</version>
     <creator>Dorando</creator>
     <contributor>Hadar Hagai</contributor>
 	<contributor>trlkly</contributor>
@@ -38,7 +38,7 @@
     <targetApplication><rdf:Description>
       <id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</id> <!--Thunderbird-->
       <minVersion>5.0b1</minVersion>
-      <maxVersion>58.*</maxVersion>
+      <maxVersion>60.0</maxVersion>
     </rdf:Description></targetApplication>
 
     <targetApplication><rdf:Description>
