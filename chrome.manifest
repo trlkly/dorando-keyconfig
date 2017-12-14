@@ -1,4 +1,5 @@
 content keyconfig content/
+content keyconfig-defaults defaults/
 locale  keyconfig en-US locale/en-US/
 locale  keyconfig cs-CZ locale/cs-CZ/
 locale  keyconfig da-DK locale/da-DK/
