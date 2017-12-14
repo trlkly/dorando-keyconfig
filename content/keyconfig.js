@@ -208,9 +208,16 @@ function Apply() {
 
  detectUsedKeys();
 
- var str = Components.classes["@mozilla.org/supports-string;1"].createInstance(Components.interfaces.nsISupportsString);
- str.data = key.pref.join("][");
- gPrefService.setComplexValue(gProfile+key.id, Components.interfaces.nsISupportsString, str);
+ var value = key.pref.join("][");
+ try {
+     // Gecko 58+
+     gPrefService.setStringPref(gProfile+key.id, value);
+ }
+ catch (e) {
+     var str = Components.classes["@mozilla.org/supports-string;1"].createInstance(Components.interfaces.nsISupportsString);
+     str.data = value;
+     gPrefService.setComplexValue(gProfile+key.id, Components.interfaces.nsISupportsString, str);
+ }
 
  keyTree.treeBoxObject.invalidate();
 
@@ -297,7 +304,13 @@ function Key(aKey) {
  if(aKey.getAttribute("keyconfig") == "resetted") this.shortcut = gStrings.uponreset;
 
  try {
-  this.pref = gPrefService.getComplexValue(gProfile+aKey.id, Components.interfaces.nsISupportsString).data.split("][");
+     try {
+         // Gecko 58+
+         this.pref = gPrefService.getStringPref(gProfile+aKey.id).split("][");
+     }
+     catch (e) {
+         this.pref = gPrefService.getComplexValue(gProfile+aKey.id, Components.interfaces.nsISupportsString).data.split("][");
+     }
  } catch(err) { this.pref = []; }
 
  this.code = getCodeFor(aKey);
@@ -378,9 +391,16 @@ function closeEditor(fields) {
 
  key.pref[4] = fields.global.checked ? "" : gLocation;
 
- var str = Components.classes["@mozilla.org/supports-string;1"].createInstance(Components.interfaces.nsISupportsString);
- str.data = key.pref.join("][");
- gPrefService.setComplexValue(gProfile+key.id, Components.interfaces.nsISupportsString, str);
+ var value = key.pref.join("][");
+ try {
+     // Gecko 58+
+     gPrefService.setStringPref(gProfile+key.id, value);
+ }
+ catch (e) {
+     var str = Components.classes["@mozilla.org/supports-string;1"].createInstance(Components.interfaces.nsISupportsString);
+     str.data = value;
+     gPrefService.setComplexValue(gProfile+key.id, Components.interfaces.nsISupportsString, str);
+ }
 
  var targets = WindowMediator.getEnumerator(null);
  var target;

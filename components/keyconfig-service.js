@@ -110,7 +110,13 @@ keyconfigService.prototype = {
   for(i = 0, l = keys.length; i < l; i++) {
    var key, node;
    try {
-    key = this.keyconfig.service.ps.getComplexValue(keys[i], Components.interfaces.nsISupportsString).data.split("][");
+       try {
+           // Gecko 58+
+           key = this.keyconfig.service.ps.getStringPref(keys[i]).split("][");
+       }
+       catch (e) {
+           key = this.keyconfig.service.ps.getComplexValue(keys[i], Components.interfaces.nsISupportsString).data.split("][");
+       }
    } catch(e) { continue; }
    if(key[3] && (!key[4] || key[4] == this.document.location)) {
     node = keyset.appendChild(this.document.createElement("key"));
