@@ -1,5 +1,3 @@
-Components.utils.import("chrome://keyconfig/content/defaultPreferencesLoader.jsm");
-
 var gPrefService = Components.classes['@mozilla.org/preferences-service;1']
                    .getService(Components.interfaces.nsIPrefService).getBranch("");
 var gUnicodeConverter = Components.classes['@mozilla.org/intl/scriptableunicodeconverter']
@@ -19,22 +17,6 @@ var gVKNames = [];
 var gReverseNames;
 
 function onLoad() {
-  // Current Thunderbird nightly builds do not load default preferences
-  // from overlay add-ons. They're probably going to fix this, but it may go
-  // away again at some point in the future, and in any case we'll need to do
-  // it ourselves when we convert from overlay to bootstrapped, and there
-  // shouldn't be any harm in setting the default values of preferences twice
-  // (i.e., both Thunderbird and our code doing it).
-  // This is in a try/catch because if it fails it's probably because
-  // setStringPref failed, in which case we're running inside an earlier
-  // application version which has already loaded the default preferences
-  // automatically.
-  try {
-      var loader = new DefaultPreferencesLoader();
-      loader.parseUri(
-          "chrome://keyconfig-defaults/content/preferences/keyconfig.js");
-  } catch (ex) {}
-
  gUnicodeConverter.charset = "UTF-8";
 
  gExtra2 = document.documentElement.getButton("extra2");
