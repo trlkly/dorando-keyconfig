@@ -6,7 +6,7 @@
   <rdf:Description rdf:about="urn:mozilla:install-manifest">
     <id>keyconfig@mozilla.dorando.at</id>
     <name>Dorando keyconfig</name>
-    <version>2017.2</version>
+    <version>2017.3</version>
     <creator>Dorando</creator>
     <contributor>Hadar Hagai</contributor>
     <contributor>trlkly</contributor>
@@ -26,6 +26,7 @@
     <homepageURL>http://mozilla.dorando.at/</homepageURL>
     <description>Rebind your keys.</description>
     <optionsURL>chrome://keyconfig/content/</optionsURL>
+    <optionsType>3</optionsType>
     <type>2</type> <!-- type=extension -->
     <multiprocessCompatible>true</multiprocessCompatible>
 
