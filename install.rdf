@@ -60,5 +60,10 @@
       <maxVersion>2.49.*</maxVersion>
     </rdf:Description></targetApplication>
 
+    <targetApplication><rdf:Description>
+      <id>{8de7fcbb-c55c-4fbe-bfc5-fc555c87dbc4}</id> <!--Pale Moon-->
+      <minVersion>25.0</minVersion>
+      <maxVersion>27.*</maxVersion>
+    </rdf:Description></targetApplication>
   </rdf:Description>
 </rdf:RDF>
