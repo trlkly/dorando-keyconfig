@@ -57,7 +57,7 @@
     <targetApplication><rdf:Description>
       <id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</id> <!--SeaMonkey-->
       <minVersion>2.1</minVersion>
-      <maxVersion>2.46</maxVersion>
+      <maxVersion>2.49.*</maxVersion>
     </rdf:Description></targetApplication>
 
   </rdf:Description>
