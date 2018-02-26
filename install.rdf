@@ -6,7 +6,7 @@
   <rdf:Description rdf:about="urn:mozilla:install-manifest">
     <id>keyconfig@mozilla.dorando.at</id>
     <name>Dorando keyconfig</name>
-    <version>2017.3</version>
+    <version>2018.1</version>
     <creator>Dorando</creator>
     <contributor>Hadar Hagai</contributor>
     <contributor>trlkly</contributor>
