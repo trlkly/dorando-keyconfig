@@ -6,7 +6,7 @@ The only changes here are non-functional changes for compatibility with newer ap
 
 Note that this add-on is _not_ compatible with Firefox 57 and newer, since it uses old add-on APIs that are no longer supported as of Firefox 57. However, it remains compatible with current versions of Thunderbird and SeaMonkey.
 
-You can install this add-on [from addons.mozilla.org](https://addons.mozilla.org/firefox/addon/dorando-keyconfig/). **If you are replacing Dorando's version of the add-on from 2011 or earlier with this version, make sure to uninstall Dorando's version before installing this one.**
+You can install this add-on from [addons.thunderbird.net](https://addons.thunderbird.net/thunderbird/addon/dorando-keyconfig) and [addons.palemoon.org](https://addons.palemoon.org/addon/keyconfig/). **If you are replacing Dorando's version of the add-on from 2011 or earlier with this version, make sure to uninstall Dorando's version before installing this one.**
 
 ## Working with the source code
 
